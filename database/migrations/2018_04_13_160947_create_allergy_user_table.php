@@ -19,8 +19,14 @@ class CreateAllergyUserTable extends Migration
             $table->integer('allergy_id')->unsigned();
 
             // set foreign keys
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('allergy_id')->references('id')->on('allergies');
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');;
+            $table->foreign('allergy_id')
+                ->references('id')
+                ->on('allergies')
+                ->onDelete('cascade');;
         });
     }
 
