@@ -8,6 +8,7 @@ Our project for the FiiCode competition (web)
 - Robert-Gabriel Stanciu
 
 # Develop
+- php artisan migrate --seed
 - composer install
 - yarn instal or npm install
 - yarn run watch-poll or npm run watch-poll
