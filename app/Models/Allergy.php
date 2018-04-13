@@ -24,4 +24,12 @@ class Allergy extends Model
     {
         return $this->belongsToMany(User::class);
     }
+    /**
+     * An allergy can have many allergens
+     *
+     */
+    public function allergens()
+    {
+        return $this->belongsToMany(Allergen::class);
+    }
 }
