@@ -19,13 +19,13 @@ class CreateAllergenAllergyTable extends Migration
 
             // foreign keys
             $table->foreign('allergy_id')
-                ->references('allergies')
-                ->on('id')
+                ->references('id')
+                ->on('allergies')
                 ->onDelete('cascade');
 
             $table->foreign('allergen_id')
-                ->references('allergens')
-                ->on('id')
+                ->references('id')
+                ->on('allergens')
                 ->onDelete('cascade');
         });
     }

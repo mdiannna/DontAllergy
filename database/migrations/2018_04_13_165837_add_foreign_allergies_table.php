@@ -13,14 +13,16 @@ class AddForeignAllergiesTable extends Migration
      */
     public function up()
     {
-        Schema::table('allergies', function (Blueprint $table) {
-            $table->integer('season')->unsigned();
-            $table->foreign('season')
-                ->references('seasons')
-                ->on('id')
-                ->onDelete('cascade');
-        });
-    }
+        if (!Schema::hasColumn('allergies', 'season_id')) { 
+            Schema::table('allergies', function (Blueprint $table) {
+                $table->integer('season_id')->unsigned();
+                $table->foreign('season_id')
+                    ->references('id')
+                    ->on('seasons')
+                    ->onDelete('cascade');
+            });
+        }
+    }   
 
     /**
      * Reverse the migrations.
@@ -29,9 +31,12 @@ class AddForeignAllergiesTable extends Migration
      */
     public function down()
     {
-        Schema::table('allergies', function (Blueprint $table) {
-            $table->dropForeign('season');
-            $table->dropColumn('season');
-        });
+        if (Schema::hasColumn('allergies', 'season_id')) { 
+            Schema::table('allergies', function (Blueprint $table) {
+                // $table->dropForeign('season_id');
+                $table->dropForeign(['season_id']);
+                $table->dropColumn('season_id');
+            });
+        }
     }
 }
