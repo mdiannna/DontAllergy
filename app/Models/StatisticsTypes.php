@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Statistics extends Model
+class StatisticsTypes extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,11 @@ class Statistics extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'statistics';
+    protected $table = 'statistics_types';
     // protected $primaryKey = 'id';
-    // public $timestamps = false;
+    public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ["name", "value", "type_id", "user_id", "allergy_id"];
+    protected $fillable = ["name", "description", "chart_type"];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,21 +34,6 @@ class Statistics extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    
-    public function type()
-    {
-        return $this->belongsTo(StatisticsTypes::class);
-    }
-
-    public function user()
-    {
-        return $this->belongsTo(User::class);
-    }
-   
-    public function allergy()
-    {
-        return $this->belongsTo(Allergy::class);
-    }
 
     /*
     |--------------------------------------------------------------------------

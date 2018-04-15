@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\StatisticsRequest as StoreRequest;
-use App\Http\Requests\StatisticsRequest as UpdateRequest;
+use App\Http\Requests\StatisticsTypesRequest as StoreRequest;
+use App\Http\Requests\StatisticsTypesRequest as UpdateRequest;
 
-class StatisticsCrudController extends CrudController
+class StatisticsTypesCrudController extends CrudController
 {
     public function setup()
     {
@@ -18,9 +18,9 @@ class StatisticsCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\Models\Statistics');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/statistics');
-        $this->crud->setEntityNameStrings('statistics', 'statistics');
+        $this->crud->setModel('App\Models\StatisticsTypes');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/statistics_types');
+        $this->crud->setEntityNameStrings('statistics type', 'statistics types');
 
         /*
         |--------------------------------------------------------------------------
@@ -30,62 +30,20 @@ class StatisticsCrudController extends CrudController
 
         $this->crud->setFromDb();
 
-        // COLUMNS
         $this->crud->addColumn([
-           'name'      => 'type_id',
-           'type'      => 'select',
-           'label'     => trans('statistics.statistics_type'),
-           'entity'    => 'type', 
-           'attribute' => 'name', 
-           'model'     => "App\Models\StatisticsTypes"
-        ]);
-
-        $this->crud->addColumn([
-           'name'      => 'user_id',
-           'type'      => 'select',
-           'label'     => trans('statistics.user'),
-           'entity'    => 'user', 
-           'attribute' => 'name', 
-           'model'     => "App\Models\User"
-        ]);
-
-        $this->crud->addColumn([
-           'name'      => 'allergy_id',
-           'type'      => 'select',
-           'label'     => trans('statistics.allergy'),
-           'entity'    => 'allergy', 
-           'attribute' => 'name', 
-           'model'     => "App\Models\Allergy"
-        ]);
+            'name' => 'chart_type',
+            'type' => 'enum',
+            'label' => 'chart_type'
+        ]); // add multiple columns, at the end of the stack
 
 
-        // FIELDS
-        $this->crud->addField([
-           'name'      => 'type_id',
-           'type'      => 'select2',
-           'label'     => trans('statistics.statistics_type'),
-           'entity'    => 'type', 
-           'attribute' => 'name', 
-           'model'     => "App\Models\StatisticsTypes"
-        ]);
 
         $this->crud->addField([
-           'name'      => 'user_id',
-           'type'      => 'select2',
-           'label'     => trans('statistics.user'),
-           'entity'    => 'user', 
-           'attribute' => 'name', 
-           'model'     => "App\Models\User"
-        ]);
+            'name' => 'chart_type',
+            'type' => 'enum',
+            'label' => trans('statistics.chart_type')
+        ]); 
 
-        $this->crud->addField([
-           'name'      => 'allergy_id',
-           'type'      => 'select2',
-           'label'     => trans('statistics.allergy'),
-           'entity'    => 'allergy', 
-           'attribute' => 'name', 
-           'model'     => "App\Models\Allergy"
-        ]);
 
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
