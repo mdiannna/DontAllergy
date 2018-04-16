@@ -18,6 +18,8 @@ class DatabaseSeeder extends Seeder
         DB::table('allergens')->truncate();
         DB::table('allergen_allergy')->truncate();
         DB::table('seasons')->truncate();
+        DB::table('roles')->truncate();
+        DB::table('groups')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
         $this->call(SeasonsSeeder::class);
         $this->call(UsersSeeder::class);
