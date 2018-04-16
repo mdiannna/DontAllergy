@@ -21,12 +21,12 @@ class DatabaseSeeder extends Seeder
         DB::table('roles')->truncate();
         DB::table('groups')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
+        $this->call(RolesSeeder::class);
         $this->call(SeasonsSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(AllergensSeeder::class);
         $this->call(AllergiesSeeder::class);
         $this->call(AllergenAllergySeeder::class);
-        $this->call(RolesSeeder::class);
         $this->call(GroupsSeeder::class);
     }
 }
