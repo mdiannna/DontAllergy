@@ -7,3 +7,4 @@ CRUD::resource('allergens', 'AllergenCrudController');
 CRUD::resource('users', 'UserCrudController');
 CRUD::resource('roles', 'RoleCrudController');
 CRUD::resource('groups', 'GroupCrudController');
+CRUD::resource('posts', 'PostCrudController');

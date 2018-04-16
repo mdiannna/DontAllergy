@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Post;
 use App\Models\Role;
 use App\Models\Group;
 use App\Models\Allergy;
@@ -71,6 +72,16 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Group::class)->withPivot('created_at', 'updated_at');
     }
+
+    /**
+     * An user can have many posts
+     *
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     
     // ACCESSORS
     public function getFullNameAttribute()
