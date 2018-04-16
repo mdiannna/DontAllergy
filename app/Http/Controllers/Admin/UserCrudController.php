@@ -45,6 +45,15 @@ class UserCrudController extends CrudController
                 'type' => 'email'
             ],
             [
+                'label' => "Allergies",
+                'type' => 'select2_multiple',
+                'name' => 'allergies', // the method that defines the relationship in your Model
+                'entity' => 'allergies', // the method that defines the relationship in your Model
+                'attribute' => 'name', // foreign key attribute that is shown to user
+                'model' => "App\Models\Allergy", // foreign key model
+                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
+            [
                 'label' => "Groups",
                 'type' => 'select2_multiple',
                 'name' => 'groups', // the method that defines the relationship in your Model
@@ -74,6 +83,14 @@ class UserCrudController extends CrudController
                 'name' => 'last_name',
                 'label' => "Last Name",
                 'type' => 'text'
+            ],
+            [
+                'label' => "Allergies", // Table column heading
+                'type' => "select_multiple",
+                'name' => 'allergies', // the method that defines the relationship in your Model
+                'entity' => 'allergies', // the method that defines the relationship in your Model
+                'attribute' => "name", // foreign key attribute that is shown to user
+                'model' => "App\Models\Allergy", // foreign key model
             ],
             [
                 'label' => "Groups", // Table column heading
