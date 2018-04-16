@@ -46,7 +46,7 @@ class StatisticsCrudController extends CrudController
            'label'     => trans('statistics.user'),
            'entity'    => 'user', 
            'attribute' => 'name', 
-           'model'     => "App\Models\User"
+           'model'     => "App\User"
         ]);
 
         $this->crud->addColumn([
@@ -75,7 +75,7 @@ class StatisticsCrudController extends CrudController
            'label'     => trans('statistics.user'),
            'entity'    => 'user', 
            'attribute' => 'name', 
-           'model'     => "App\Models\User"
+           'model'     => "App\User"
         ]);
 
         $this->crud->addField([

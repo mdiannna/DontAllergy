@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,6 +27,13 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    // FUNCTIONS
+
+    public function isAdmin()
+    {
+        return ($this->role_id == 1);
+    }
+
     // RELATIONS
 
     /**
@@ -37,4 +44,5 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Allergy::class);
     }
+    
 }
