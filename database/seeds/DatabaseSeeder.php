@@ -12,11 +12,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('users')->truncate();
         DB::table('allergies')->truncate();
         DB::table('allergens')->truncate();
         DB::table('allergen_allergy')->truncate();
         DB::table('seasons')->truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=1');
         $this->call(SeasonsSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(AllergensSeeder::class);

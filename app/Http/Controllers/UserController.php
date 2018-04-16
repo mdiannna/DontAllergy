@@ -27,4 +27,14 @@ class UserController extends Controller
         $allergies = auth()->user()->allergies;
         return view('user_allergies', compact('allergies'));
     }
+
+    /**
+     * Update User info
+     *
+     */
+    public function update(Request $request)
+    {
+        auth()->user()->update($request);
+        return redirect()->back();
+    }
 }

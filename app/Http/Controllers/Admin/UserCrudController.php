@@ -70,7 +70,6 @@ class UserCrudController extends CrudController
                 'attribute' => 'name', // foreign key attribute that is shown to user
                 'model' => "App\Models\Role" // foreign key model
             ],
-            
         ]);
 
         $this->crud->addColumns([
