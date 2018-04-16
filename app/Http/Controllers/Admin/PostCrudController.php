@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Backpack\CRUD\app\Http\Controllers\CrudController;
+use App\User;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\PostRequest as StoreRequest;
 use App\Http\Requests\PostRequest as UpdateRequest;
+use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 class PostCrudController extends CrudController
 {
@@ -29,7 +30,15 @@ class PostCrudController extends CrudController
         */
 
         $this->crud->setFromDb();
-
+        $this->crud->addFilter([
+            'name' => 'status',
+            'type' => 'select2',
+            'label' => 'User'
+        ], function () {
+            return User::all()->pluck('full_name', 'id')->toArray();
+        }, function ($value) {
+            $this->crud->addClause('where', 'user_id', $value);
+        });
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');

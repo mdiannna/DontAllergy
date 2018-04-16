@@ -19,3 +19,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/user-allergies', 'UserController@allergies')->name('user.allergies');
+
+// User controller routes
+
+Route::post('/user/post/save', 'UserController@savePost')->name('user.post.save');
+Route::delete('/user/post/delete', 'UserController@deletePost')->name('user.post.delete');

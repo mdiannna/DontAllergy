@@ -22,7 +22,8 @@ class Post extends Model
     // protected $guarded = ['id'];
     protected $fillable = [
         'title',
-        'description'
+        'description',
+        'user_id'
     ];
     // protected $hidden = [];
     // protected $dates = [];

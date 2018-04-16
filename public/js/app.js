@@ -13678,9 +13678,25 @@ module.exports = __webpack_require__(37);
 __webpack_require__(12);
 __webpack_require__(36);
 
-// Initialize datatables
 $(document).ready(function () {
+    // Initialize datatables
     $('.data-table').DataTable();
+
+    // Delete a post
+    $('.delete-post').click(function () {
+        post = $(this);
+        axios.delete('/user/post/delete', {
+            data: { id: post.data('post') }
+        }).then(function (response) {
+            if (response.data.success) {
+                post.parents('.card').fadeOut(function () {
+                    $(this).remove();
+                });
+            }
+        }).catch(function (error) {
+            console.log(error);
+        });
+    });
 });
 
 /***/ }),

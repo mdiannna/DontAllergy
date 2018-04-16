@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -37,4 +38,29 @@ class UserController extends Controller
         auth()->user()->update($request);
         return redirect()->back();
     }
+
+    /**
+     * Save a post
+     *
+     */
+    public function savePost(Request $request, Post $post)
+    {
+        $post = $post->create($request->all() + ['user_id' => auth()->user()->id]);
+        return redirect()->back();
+    }
+
+    /**
+     * Delete a post
+     *
+     */
+    public function deletePost(Post $post, Request $request)
+    {
+        $post = $post->findOrFail($request->id);
+        if ($post->user->id == auth()->user()->id) {
+            $post->delete();
+            return response()->json(['success' => true]);
+        }
+        return response()->json(['succes' => false]);
+    }
+
 }
