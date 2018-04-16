@@ -16,6 +16,11 @@ class CreateAllergiesTable extends Migration
         Schema::create('allergies', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 60);
+            
+            $table->unsignedInteger('season_id');
+            $table->foreign('season_id')
+                ->references('id')
+                ->on('seasons');
             $table->timestamps();
         });
     }

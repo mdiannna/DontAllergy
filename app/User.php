@@ -4,10 +4,12 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Backpack\CRUD\CrudTrait;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use CrudTrait;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'first_name', 'last_name', 'email', 'password',
     ];
 
     /**
@@ -45,4 +47,9 @@ class User extends Authenticatable
         return $this->belongsToMany(Allergy::class);
     }
     
+    // ACCESSORS
+    public function getFullNameAttribute()
+    {
+        return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
+    }
 }
