@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
-use App\Http\Requests\UserRequest as StoreRequest;
-use App\Http\Requests\UserRequest as UpdateRequest;
+use App\Http\Requests\RoleRequest as StoreRequest;
+use App\Http\Requests\RoleRequest as UpdateRequest;
 
-class UserCrudController extends CrudController
+class RoleCrudController extends CrudController
 {
     public function setup()
     {
@@ -18,9 +18,9 @@ class UserCrudController extends CrudController
         | BASIC CRUD INFORMATION
         |--------------------------------------------------------------------------
         */
-        $this->crud->setModel('App\User');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/users');
-        $this->crud->setEntityNameStrings('user', 'users');
+        $this->crud->setModel('App\Models\Role');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/roles');
+        $this->crud->setEntityNameStrings('role', 'roles');
 
         /*
         |--------------------------------------------------------------------------
@@ -28,69 +28,8 @@ class UserCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
-        $this->crud->addFields([
-            [
-                'name' => 'first_name',
-                'label' => "First Name",
-                'type' => 'text'
-            ],
-            [
-                'name' => 'last_name',
-                'label' => "Last Name",
-                'type' => 'text'
-            ],
-            [
-                'name' => 'email',
-                'label' => 'Email Address',
-                'type' => 'email'
-            ],
-            [
-                'label' => "Groups",
-                'type' => 'select2_multiple',
-                'name' => 'groups', // the method that defines the relationship in your Model
-                'entity' => 'groups', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model' => "App\Models\Group", // foreign key model
-                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
-            ],
-            [
-                'label' => "Role",
-                'type' => 'select2',
-                'name' => 'role_id', // the db column for the foreign key
-                'entity' => 'role', // the method that defines the relationship in your Model
-                'attribute' => 'name', // foreign key attribute that is shown to user
-                'model' => "App\Models\Role" // foreign key model
-            ],
-            
-        ]);
+        $this->crud->setFromDb();
 
-        $this->crud->addColumns([
-            [
-                'name' => 'first_name',
-                'label' => "First Name",
-                'type' => 'text'
-            ],
-            [
-                'name' => 'last_name',
-                'label' => "Last Name",
-                'type' => 'text'
-            ],
-            [
-                'label' => "Groups", // Table column heading
-                'type' => "select_multiple",
-                'name' => 'groups', // the method that defines the relationship in your Model
-                'entity' => 'groups', // the method that defines the relationship in your Model
-                'attribute' => "name", // foreign key attribute that is shown to user
-                'model' => "App\Models\Group", // foreign key model
-            ],
-            [
-                'name' => 'email',
-                'label' => 'Email Address',
-                'type' => 'email'
-            ],
-        ]);
-
-        $this->crud->removeButton('create');
         // ------ CRUD FIELDS
         // $this->crud->addField($options, 'update/create/both');
         // $this->crud->addFields($array_of_arrays, 'update/create/both');

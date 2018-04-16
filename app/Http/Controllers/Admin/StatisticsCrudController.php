@@ -20,7 +20,7 @@ class StatisticsCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Statistics');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/statistics');
-        $this->crud->setEntityNameStrings('statistics', 'statistics');
+        $this->crud->setEntityNameStrings('user', 'statistics');
 
         /*
         |--------------------------------------------------------------------------

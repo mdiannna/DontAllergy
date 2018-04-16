@@ -2,9 +2,12 @@
 
 namespace App;
 
+use App\Models\Role;
+use App\Models\Group;
+use App\Models\Allergy;
+use Backpack\CRUD\CrudTrait;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Backpack\CRUD\CrudTrait;
 
 class User extends Authenticatable
 {
@@ -17,7 +20,11 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'first_name', 'last_name', 'email', 'password',
+        'first_name',
+        'last_name',
+        'email',
+        'password',
+        'role_id'
     ];
 
     /**
@@ -46,10 +53,29 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Allergy::class);
     }
+
+    /**
+     * An user have a role
+     *
+     */
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    /**
+     * An user can have many groups
+     *
+     */
+    public function groups()
+    {
+        return $this->belongsToMany(Group::class)->withPivot('created_at', 'updated_at');
+    }
     
     // ACCESSORS
     public function getFullNameAttribute()
     {
         return ucfirst($this->first_name) . ' ' . ucfirst($this->last_name);
     }
+
 }

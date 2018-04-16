@@ -17,10 +17,12 @@ class DatabaseSeeder extends Seeder
         DB::table('allergens')->truncate();
         DB::table('allergen_allergy')->truncate();
         DB::table('seasons')->truncate();
-        $this->call(SeasonsTableSeeder::class);
+        $this->call(SeasonsSeeder::class);
         $this->call(UsersSeeder::class);
         $this->call(AllergensSeeder::class);
         $this->call(AllergiesSeeder::class);
         $this->call(AllergenAllergySeeder::class);
+        $this->call(RolesSeeder::class);
+        $this->call(GroupsSeeder::class);
     }
 }
