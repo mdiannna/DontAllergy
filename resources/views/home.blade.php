@@ -13,7 +13,7 @@
                 </div>
                 <div class="row">
                     <div class="col text-right">
-                        <button type="submit" class="btn btn-primary">Post</button>
+                        <button type="submit" class="btn btn-primary">Post something</button>
                     </div>
                 </div>
             </div>
