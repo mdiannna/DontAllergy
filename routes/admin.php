@@ -8,3 +8,5 @@ CRUD::resource('users', 'UserCrudController');
 CRUD::resource('roles', 'RoleCrudController');
 CRUD::resource('groups', 'GroupCrudController');
 CRUD::resource('posts', 'PostCrudController');
+
+Route::get('/view-statistics/{id}', 'StatisticsCrudController@viewStatistics')->name('view-statistics');

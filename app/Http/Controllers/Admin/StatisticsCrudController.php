@@ -173,4 +173,16 @@ class StatisticsCrudController extends CrudController
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
     }
+
+    public function viewStatistics($id) 
+    {
+        // $chartType = 'line';
+        $chartType = 'bar';
+        // $chartType = 'column';
+        // $chartType = 'pie';
+        return view('statistics.view_statistics', [ 
+            'id'        => $id,
+            'chartType' => $chartType
+        ]);
+    }
 }

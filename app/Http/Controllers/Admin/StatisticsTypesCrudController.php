@@ -33,7 +33,7 @@ class StatisticsTypesCrudController extends CrudController
         $this->crud->addColumn([
             'name' => 'chart_type',
             'type' => 'enum',
-            'label' => 'chart_type'
+            'label' => 'Chart type'
         ]); // add multiple columns, at the end of the stack
 
 

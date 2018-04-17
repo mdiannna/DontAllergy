@@ -17,7 +17,7 @@ class CreateStatisticsTypesTable extends Migration
             $table->increments('id');
             $table->string('name', 64)->unique();
             $table->string('description')->nullable();
-            $table->enum('chart_type', ['line', 'bar', 'pie'])->nullable();    
+            $table->enum('chart_type', ['line', 'bar', 'pie', 'column'])->nullable();    
             $table->timestamps();
         });
     }
