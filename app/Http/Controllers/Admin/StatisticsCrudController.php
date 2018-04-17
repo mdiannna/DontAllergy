@@ -20,7 +20,7 @@ class StatisticsCrudController extends CrudController
         */
         $this->crud->setModel('App\Models\Statistics');
         $this->crud->setRoute(config('backpack.base.route_prefix') . '/statistics');
-        $this->crud->setEntityNameStrings('user', 'statistics');
+        $this->crud->setEntityNameStrings('statistic', 'statistics');
 
         /*
         |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ class StatisticsCrudController extends CrudController
            'type'      => 'select',
            'label'     => trans('statistics.user'),
            'entity'    => 'user', 
-           'attribute' => 'name', 
+           'attribute' => 'full_name', 
            'model'     => "App\User"
         ]);
 
@@ -74,7 +74,7 @@ class StatisticsCrudController extends CrudController
            'type'      => 'select2',
            'label'     => trans('statistics.user'),
            'entity'    => 'user', 
-           'attribute' => 'name', 
+           'attribute' => 'full_name', 
            'model'     => "App\User"
         ]);
 
