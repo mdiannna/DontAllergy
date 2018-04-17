@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -35,8 +35,27 @@ class UserController extends Controller
      */
     public function update(Request $request)
     {
-        auth()->user()->update($request);
+        auth()->user()->update($request->toArray());
         return redirect()->back();
+    }
+
+    /**
+     * See user profile
+     *
+     */
+    public function view()
+    {
+        return view('user.profile');
+    }
+
+    /**
+     * Get user
+     *
+     */
+    public function get()
+    {
+        $user = auth()->user();
+        return response()->json(auth()->user()->toArray() + ['success' => true]);
     }
 
     /**
@@ -62,5 +81,4 @@ class UserController extends Controller
         }
         return response()->json(['succes' => false]);
     }
-
 }

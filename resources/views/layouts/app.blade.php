@@ -40,6 +40,7 @@
                             </a>
 
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('user.profile.view') }}">Profile</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
@@ -56,7 +57,7 @@
             </div>
         </div>
     </nav>
-    <main class="py-4">
+    <main id="app" class="py-4">
         <div class="container">
              @if (session('status'))
                 <div class="alert alert-success">

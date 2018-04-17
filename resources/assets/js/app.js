@@ -1,5 +1,15 @@
-require('./bootstrap');
-require("datatables.net");
+require("./bootstrap");
+
+window.Vue = require("vue");
+
+Vue.component(
+  "user-profile",
+  require("./components/UserProfile.vue")
+);
+
+const app = new Vue({
+  el: "#app"
+});
 
 $(document).ready( function () {
     // Initialize datatables
