@@ -236,7 +236,7 @@
         </div>
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <p class="large text-muted">We are the Codeleign team and we are eager to help you!</p>
+            <p class="large text-muted">We are the <b>Codeleign</b> team and we are eager to help you!</p>
           </div>
         </div>
       </div>
