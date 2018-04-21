@@ -19,36 +19,55 @@
             <div class="box">
                 <div class="box-header with-border">
                     <!-- <h3 class="box-title">Allergy questionnaire</h3> -->
-                    <div class="col-md-12">
-					<div class="card">
-					<!-- 	<div class="card-header">
-							<div class="card-title">Allergy Questionnaire </div>
-						</div> -->
-						<div class="card-body">
-							<div class="form-group">
-							<text> What is your allergy? </text>
-								<select class="form-control input-square" id="squareSelect">
-									<option>Alergie 1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<text> How often do you have the symptoms of your allergy? </text>
-								<input type="text" class="form-control input-square" id="squareInput" placeholder="">
-							</div>
-							<div class="form-group">
-								<text>The country in which you had the allergy </text>
-								<input type="text" class="form-control input-square" id="squareInput" placeholder="">
-							</div>	
-						</div>
-						<div class="card-action">
-							<button class="btn btn-success">Submit</button>
-							<button class="btn btn-danger">Cancel</button>
-						</div>
-					</div>
+                    <!-- <div class="col-md-12"> -->
+
+                    <form action="/submit-allergy" method="post">
+                        {{ csrf_field() }}
+
+                        <div class="form-group">
+                            <label for="allergy_id">What is your allergy?</label>
+                           	<select id="allergy_id" class="form-control" name="allergy_id" required="required">
+                            <option>-</option>
+                          
+                            @foreach ('App\Models\Allergy'::all() as $allergy)
+                                <option value="{{$allergy->getKey()}}"
+                                @if (old('allergy_id', '') !=  '')
+                                    selected
+                                @endif 
+                                >
+                                    {{ $allergy->name }}
+                                </option>
+                              @endforeach
+                            </select>
+                        </div>
+
+                         <div class="form-group">
+                            <label for="value">How many times did you have this allergy?</label>
+                            <input id="value" class="form-control" type="number" name="value" min=1 placeholder="{{ __('value') }}" value="{{ old("value", "") }}" required="required">
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="country_id">The country in which you had the allergy</label>
+                            <select id="country_id" class="form-control" name="country_id" required="required">
+                            <option>-</option>
+                          
+                            @foreach ('App\Models\Country'::all() as $country)
+                                <option value="{{$country->getKey()}}"
+                                @if (old('country_id', '') !=  '')
+                                    selected
+                                @endif 
+                                >
+                                    {{ $country->name }}
+                                </option>
+                              @endforeach
+                            </select>
+                        </div>
+
+                        <button class="btn btn-success" type="submit">Submit</button>
+						<a href="{{ url()->previous() }}"  class="btn btn-danger">Cancel</a>
+					</form>
+
+					<!-- </div> -->
                 </div>
 			</div>
 		</div>

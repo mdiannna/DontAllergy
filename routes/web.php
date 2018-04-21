@@ -32,3 +32,5 @@ Route::post('/user/profile/update', 'UserController@update')->name('user.profile
 Route::get('/my-allergies', 'Admin\AllergyCrudController@myAllergies')->name('my_allergies');
 
 Route::get('/add-allergy', 'Admin\AllergyCrudController@addAllergy')->name('add_allergy');
+
+Route::post('/submit-allergy', 'Admin\AllergyCrudController@submitAllergy')->name('submit_allergy');

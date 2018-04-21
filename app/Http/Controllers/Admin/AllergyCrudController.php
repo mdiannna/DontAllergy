@@ -8,6 +8,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\AllergyRequest as StoreRequest;
 use App\Http\Requests\AllergyRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Statistics;
 
 class AllergyCrudController extends CrudController
 {
@@ -189,7 +190,14 @@ class AllergyCrudController extends CrudController
       return view('allergies.add_allergy');
     }
 
-    public function submitAllergy(Request $request) {
-        $userId = Auth::id();
+    public function submitAllergy(StoreRequest $request) {
+        $user = Auth::user();
+        $user->allergies()->attach($request->allergy_id);
+
+        $request->user_id = Auth::id();
+        $statistics = new Statistics($request->except('_token'));
+        // $userId = Auth::id();
+        
+        return redirect('/my-allergies');
     }
 }

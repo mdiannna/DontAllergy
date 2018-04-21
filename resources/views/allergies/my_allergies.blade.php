@@ -41,7 +41,7 @@
                 <div class="box-body with-border">
            
                 @foreach($allergies as $allergy)
-                <div class="col-md-3">
+                <div class="form-group col-md-3">
                 	@if($allergy->season->name == 'Winter')
                 	<div class="card text-white bg-primary">
                 	@elseif($allergy->season->name == 'Spring')
