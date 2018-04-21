@@ -9,6 +9,7 @@ use App\Http\Requests\StatisticsRequest as StoreRequest;
 use App\Http\Requests\StatisticsRequest as UpdateRequest;
 
 use App\Models\Statistics;
+use App\Models\Allergy;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
@@ -477,10 +478,9 @@ class StatisticsCrudController extends CrudController
       foreach ($statistic->allergy->allergens as $allergen) {
         if(!isset($dataAllergensInit[$allergen->name])) {
           $dataAllergensInit[$allergen->name] = 0;
-        } else {
-          $dataAllergensInit[$allergen->name] += $statistic->value;
         }
-
+        $dataAllergensInit[$allergen->name] += $statistic->value;
+        
       }
     }
 
@@ -499,16 +499,16 @@ class StatisticsCrudController extends CrudController
 
 
 
+    $allergies = Allergy::all();
           // series By user
     $dataUsersInit = array();
 
-    foreach ($statistics as $statistic) {
-      if(!isset($dataUsersInit[$statistic->allergy->name])) {
-          $dataUsersInit[$statistic->allergy->name] = 0;
+    foreach ($allergies as $allergy) {
+      // dd(count($allergy->users));
+      if(!isset($dataUsersInit[$allergy->name])) {
+          $dataUsersInit[$allergy->name] = 0;
       }
-      else {
-          $dataUsersInit[$statistic->allergy->name] = count($statistic->allergy->users);
-      }
+      $dataUsersInit[$allergy->name] += count($allergy->users);
     }
 
     $dataUsers = array();
@@ -522,6 +522,8 @@ class StatisticsCrudController extends CrudController
         array_push($dataUsers, $obj);
       }
     }
+
+    // dd($dataUsersInit);
     $seriesUsers = json_encode($dataUsers);
 
 
