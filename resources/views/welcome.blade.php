@@ -85,6 +85,9 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="/my-statistics">My statistics</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/all-statistics">All statistics</a>
+            </li>
             @endif
 
           </ul>
