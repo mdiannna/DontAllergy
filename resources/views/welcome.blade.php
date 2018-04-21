@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
 
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>{{ config('app.name') }} - Welcome</title>
-	  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
     <!-- Bootstrap core CSS -->
-    <link href="source/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ asset('source/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="source/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="{{ asset('source/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('css/agency.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/agency.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
 
   </head>
 
@@ -38,23 +40,53 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
+            @if(!Auth::check())
+              
+            
             <li class="nav-item">
-			<!-- in loc de services - sign up-->
-              <a class="nav-link js-scroll-trigger" href="sign_up.html">Sign up</a>
+
+              <a class="nav-link js-scroll-trigger" href="#about">
+                <i class="fa fa-check"></i>
+              About</a>
             </li>
             <li class="nav-item">
-			<!-- in loc de portfolio - sign in-->
-              <a class="nav-link js-scroll-trigger" href="sign_in.html">Sign in</a>
+
+              <a class="nav-link js-scroll-trigger" href="#team">
+                <i class="fa fa-users"></i>
+
+              Team</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#about">About</a>
+              <a class="nav-link js-scroll-trigger" href="#contact">
+                <i class="fa fa-envelope"></i>
+              Contact</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="/register">
+                <i class="fa fa-user"></i>
+                Register</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/login">
+                <i class="fa fa-sign-in"></i>
+
+              Log in</a>
+            </li>
+            @endif
+
+            @if(Auth::check())
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="/admin/dashboard">Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#team">Team</a>
+              <a class="nav-link js-scroll-trigger" href="/my-allergies">My allergies</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+              <a class="nav-link js-scroll-trigger" href="/my-statistics">My statistics</a>
             </li>
+            @endif
+
           </ul>
         </div>
       </div>
@@ -64,9 +96,11 @@
     <header class="masthead">
       <div class="container">
         <div class="intro-text">
-          <div class="intro-lead-in">Welcome To Our World!</div>
-          <div class="intro-heading text-uppercase">"Alone we can do so little; together we can do so much!" - Hellen Keller </div>
-          <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#sign_up">Tell Me More</a>
+          <!-- <div class="intro-lead-in">Welcome To Our World!</div> -->
+          <div class="intro-heading text-uppercase">Don't Allergy Me! </div>
+          <div class="intro-lead-in">"Alone we can do so little - together we can do so much!"
+          </div>
+          <a id="tellMeMore" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#about">Tell Me More</a>
         </div>
       </div>
     </header>
@@ -85,7 +119,7 @@
             <ul class="timeline">
               <li>
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img1/about/images3.jpg" alt="">
+                  <img class="rounded-circle img-fluid" src="img/about/images3.jpg" alt="">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
@@ -98,7 +132,7 @@
               </li>
               <li class="timeline-inverted">
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img1/about/images5.jpg" alt="">
+                  <img class="rounded-circle img-fluid" src="img/about/images5.jpg" alt="">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
@@ -111,7 +145,7 @@
               </li>
               <li>
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img1/about/images8.jpg" alt="">
+                  <img class="rounded-circle img-fluid" src="img/about/images8.jpg" alt="">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
@@ -124,7 +158,7 @@
               </li>
               <li class="timeline-inverted">
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img1/about/images7.jpg" alt="">
+                  <img class="rounded-circle img-fluid" src="img/about/images7.jpg" alt="">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
@@ -137,7 +171,7 @@
               </li>
 			  <li>
                 <div class="timeline-image">
-                  <img class="rounded-circle img-fluid" src="img1/about/images9.jpg" alt="">
+                  <img class="rounded-circle img-fluid" src="img/about/images9.jpg" alt="">
                 </div>
                 <div class="timeline-panel">
                   <div class="timeline-heading">
@@ -173,28 +207,28 @@
         <div class="row">
           <div class="col-sm-3">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img1/team/gabi.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="img/team/gabi.jpg" alt="">
               <h4>Robert Gabriel Stanciu</h4>
 			  <p class="text-muted">Back-end</p>
             </div>
           </div>
           <div class="col-sm-3">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img1/team/irina.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="img/team/irina.jpg" alt="">
               <h4>Irina Gutanu</h4>
 			  <p class="text-muted">Front-end</p>
             </div>
           </div>
           <div class="col-sm-3">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img1/team/diana.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="img/team/diana.jpg" alt="">
               <h4>Diana Marusic</h4>
 			  <p class="text-muted">Back-end</p>
             </div>
           </div>
 		   <div class="col-sm-3">
             <div class="team-member">
-              <img class="mx-auto rounded-circle" src="img1/team/naomi.jpg" alt="">
+              <img class="mx-auto rounded-circle" src="img/team/naomi.jpg" alt="">
               <h4>Naomi Alexandra Halip</h4>
 			  <p class="text-muted">Front-end</p>
             </div>
@@ -257,45 +291,42 @@
     <footer>
       <div class="container">
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-6">
             <span class="copyright">Copyright &copy; Don't allergy me! 2018</span>
           </div>
-          <div class="col-md-4">
-            <ul class="list-inline social-buttons">
-              <li class="list-inline-item">
-                <a href="https://github.com/mdiannna/DontAllergy">
-                  <i class="fa fa-github"></i>
+          <div class="col-md-6">
+                <a href="https://github.com/mdiannna/DontAllergy" style="color:black; ">
+
+                  <i class="fa fa-github" style="font-size: 2rem;"></i>
+            
+            <span style="color:black; font-size: 1rem;"> 
+&nbsp;
+                  Our github link
+
+            </span>
+
+            </ul>
                 </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-md-4">
-            <ul class="list-inline quicklinks">
-              <li class="list-inline-item">
-                <a href="#">Privacy Policy</a>
-              </li>
-              <li class="list-inline-item">
-                <a href="#">Terms of Use</a>
-              </li>
-            </ul>
+
           </div>
         </div>
       </div>
     </footer>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
+    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Contact form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+    <script src="{{asset('js/jqBootstrapValidation.js')}}"></script>
+    <script src="{{asset('js/contact_me.js')}}"></script>
 
     <!-- Custom scripts for this template -->
-    <script src="js/agency.min.js"></script>
+    <script src="{{asset('js/agency.min.js')}}"></script>
 
   </body>
 
