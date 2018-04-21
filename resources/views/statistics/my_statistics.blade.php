@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 type: 'column'
             },
             title: {
-                text: 'Your allergies frequency '
+                text: 'Your allergies frequency(TODO: de luat date din BD!!!) '
             },
             xAxis: {
                 categories: [
@@ -63,8 +63,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 }
             },
             tooltip: {
-                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                headerFormat: '<span style="font-size:10px">{point.key} </span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td> ' +
                     '<td style="padding:0"><b>{point.y}</b></td></tr>',
                 footerFormat: '</table>',
                 shared: true,
@@ -72,41 +72,41 @@ document.addEventListener("DOMContentLoaded", function(event) {
             },
             plotOptions: {
                 column: {
-                    pointPadding: 0.2,
+                    pointPadding: 0,
                     borderWidth: 0
                 }
             },
             series: [
             {
-                name: 'Tokyo',
-                data: [49.9, 71.5, 106.4, 129.2]
+                name: 'Allergy1',
+                data: [49, 71, 106, 129]
 
             }, {
-                name: 'New York',
-                data: [83.6, 78.8, 98.5, 93.4]
+                name: 'Allergy2',
+                data: [83, 78, 98, 93]
 
             }, {
-                name: 'London',
-                data: [48.9, 38.8, 39.3, 41.4]
+                name: 'Allergy3',
+                data: [48, 38, 39, 41]
 
             }, {
-                name: 'Berlin',
-                data: [42.4, 33.2, 34.5, 39.7]
+                name: 'Allergy4',
+                data: [42, 33, 34, 39]
 
             },
             {
-                name: 'Berlin',
-                data: [42.4, 33.2, 34.5, 39.7]
+                name: 'Allergy5',
+                data: [42, 33, 34, 39]
 
             },
             {
-                name: 'Berlin',
-                data: [42.4, 33.2, 34.5, 39.7]
+                name: 'Allergy6',
+                data: [42, 33, 34 , 39]
 
             },
             {
-                name: 'Berlin',
-                data: [42.4, 33.2, 34.5, 39.7]
+                name: 'Allergy 7',
+                data: [42, 33, 34, 39]
 
             }]
         });

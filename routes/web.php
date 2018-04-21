@@ -36,3 +36,6 @@ Route::get('/add-allergy', 'Admin\AllergyCrudController@addAllergy')->name('add_
 Route::post('/submit-allergy', 'Admin\AllergyCrudController@submitAllergy')->name('submit_allergy');
 
 Route::get('/my-statistics', 'Admin\StatisticsCrudController@myStatistics')->name('my_statistics');
+
+
+Route::get('/view-allergy/{id}', 'Admin\AllergyCrudController@viewAllergy')->name('view_allergy');

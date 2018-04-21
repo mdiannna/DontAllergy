@@ -79,7 +79,7 @@
 
                 				</ul>
                 			</p>
-                			<a href="" class="btn btn-primary pull-right">View more</a>
+                			<a href="/view-allergy/{{$allergy->id}}" class="btn btn-primary pull-right">View more</a>
                 		</div>
                 	</div>
                 </div>

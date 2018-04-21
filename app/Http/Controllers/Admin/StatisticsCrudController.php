@@ -211,7 +211,7 @@ class StatisticsCrudController extends CrudController
     {
       $statistics = Statistics::where('user_id', Auth::id())->get();
 
-      dd($statistics);
+      // dd($statistics);
       return view('statistics.my_statistics', ['statistics' => $statistics]);
     }
 

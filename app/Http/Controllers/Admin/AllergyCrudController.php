@@ -9,6 +9,7 @@ use App\Http\Requests\AllergyRequest as StoreRequest;
 use App\Http\Requests\AllergyRequest as UpdateRequest;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Statistics;
+use App\Models\Allergy;
 
 class AllergyCrudController extends CrudController
 {
@@ -202,4 +203,11 @@ class AllergyCrudController extends CrudController
         
         return redirect('/my-allergies');
     }
+
+    public function viewAllergy($id) 
+    {
+        $allergy = Allergy::find($id);
+        return view('allergies.view_allergy', ['allergy' => $allergy]);
+    }
+
 }
