@@ -194,8 +194,10 @@ class AllergyCrudController extends CrudController
         $user = Auth::user();
         $user->allergies()->attach($request->allergy_id);
 
-        $request->user_id = Auth::id();
+        $request['user_id'] = Auth::id();
+        $request['name'] = 'frequency_statistics';
         $statistics = new Statistics($request->except('_token'));
+        $statistics->save();
         // $userId = Auth::id();
         
         return redirect('/my-allergies');

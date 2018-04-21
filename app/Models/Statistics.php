@@ -19,7 +19,7 @@ class Statistics extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ["name", "value", "type_id", "user_id", "allergy_id"];
+    protected $fillable = ["name", "value", "type_id", "user_id", "allergy_id", "country_id"];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -42,12 +42,17 @@ class Statistics extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User');
     }
    
     public function allergy()
     {
         return $this->belongsTo(Allergy::class);
+    }
+
+    public function country()
+    {
+        return $this->belongsTo(Country::class);
     }
 
     /*

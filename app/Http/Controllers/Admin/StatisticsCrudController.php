@@ -8,6 +8,9 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 use App\Http\Requests\StatisticsRequest as StoreRequest;
 use App\Http\Requests\StatisticsRequest as UpdateRequest;
 
+use App\Models\Statistics;
+use Illuminate\Support\Facades\Auth;
+
 class StatisticsCrudController extends CrudController
 {
     public function setup()
@@ -58,6 +61,15 @@ class StatisticsCrudController extends CrudController
            'model'     => "App\Models\Allergy"
         ]);
 
+        $this->crud->addColumn([
+           'name'      => 'country_id',
+           'type'      => 'select',
+           'label'     => 'Country',
+           'entity'    => 'country', 
+           'attribute' => 'name', 
+           'model'     => "App\Models\Country"
+        ]);
+
 
         // FIELDS
         $this->crud->addField([
@@ -85,6 +97,15 @@ class StatisticsCrudController extends CrudController
            'entity'    => 'allergy', 
            'attribute' => 'name', 
            'model'     => "App\Models\Allergy"
+        ]);
+
+        $this->crud->addField([
+           'name'      => 'country_id',
+           'type'      => 'select2',
+           'label'     => 'Country',
+           'entity'    => 'country', 
+           'attribute' => 'name', 
+           'model'     => "App\Models\Country"
         ]);
 
         // ------ CRUD FIELDS
@@ -185,5 +206,14 @@ class StatisticsCrudController extends CrudController
             'chartType' => $chartType
         ]);
     }
+
+    public function myStatistics() 
+    {
+      $statistics = Statistics::where('user_id', Auth::id())->get();
+
+      dd($statistics);
+      return view('statistics.my_statistics', ['statistics' => $statistics]);
+    }
+
 
 }
