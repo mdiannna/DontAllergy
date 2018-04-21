@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
         DB::table('seasons')->truncate();
         DB::table('roles')->truncate();
         DB::table('groups')->truncate();
+        DB::table('foods')->truncate();
+        DB::table('environment_conditions')->truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
         $this->call(RolesSeeder::class);
         $this->call(SeasonsSeeder::class);
@@ -31,5 +33,7 @@ class DatabaseSeeder extends Seeder
         $this->call(GroupsSeeder::class);
         $this->call(PostsSeeder::class);
         $this->call(CountriesTableSeeder::class);
+        $this->call(FoodsSeeder::class);
+        $this->call(EnvironmentConditionsSeeder::class);
     }
 }

@@ -39,7 +39,12 @@
              <h3 class="box-title">My allergies</h3>
                 </div> -->
                 <div class="box-body with-border">
-           
+           		@if(!count($allergies)) 
+           		<p>You don't have any allergies.</p>
+    			<a href="/add-allergy" class="btn btn-primary"><i class="fa fa-plus"></i> Add allergy</a>
+
+           		@endif
+
                 @foreach($allergies as $allergy)
                 <div class="form-group col-md-3">
                 	@if($allergy->season->name == 'Winter')

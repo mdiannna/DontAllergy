@@ -13,9 +13,7 @@ class AllergenAllergySeeder extends Seeder
     {
         $insert = [];
         for ($i=1; $i <= 30; $i++) { 
-            for ($j=0; $j < 3; $j++) {
-                $insert[] = ['allergen_id' => rand(1, 123), 'allergy_id' => $i];
-            }
+            $insert[] = ['allergen_id' => rand(1, 4), 'allergy_id' => $i];
         }
         DB::table('allergen_allergy')->insert($insert);
     }

@@ -54,12 +54,39 @@ class AllergyCrudController extends CrudController
                 'model'     => "App\Models\Allergen", // foreign key model
                 'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
             ],
+            [ 
+                'label'     => "Foods",
+                'type'      => 'select2_multiple',
+                'name'      => 'foods',
+                'entity'    => 'foods',
+                'attribute' => 'name', 
+                'model'     => "App\Models\Food", 
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
+            [ 
+                'label'     => "Environment conditions",
+                'type'      => 'select2_multiple',
+                'name'      => 'environment_conditions',
+                'entity'    => 'environment_conditions',
+                'attribute' => 'name', 
+                'model'     => "App\Models\EnvironmentCondition", 
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
             [
                 'label' => 'Symptoms',
                 'type'  => 'textarea',
                 'name'  => 'symptoms'
+            ],
+            [
+                'label' => 'Prevention',
+                'type'  => 'textarea',
+                'name'  => 'prevention'
+            ],
+            [
+                'label' => 'Treatment',
+                'type'  => 'textarea',
+                'name'  => 'treatment'
             ]
-            
         ]);
 
         $this->crud->addColumns([
@@ -83,10 +110,38 @@ class AllergyCrudController extends CrudController
                 'attribute' => "name", // foreign key attribute that is shown to user
                 'model'     => "App\Models\Allergen", // foreign key model
             ],
+            [ 
+                'label'     => "Foods",
+                'type'      => 'select_multiple',
+                'name'      => 'foods',
+                'entity'    => 'foods',
+                'attribute' => 'name', 
+                'model'     => "App\Models\Food", 
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
+            [ 
+                'label'     => "Environment conditions",
+                'type'      => 'select_multiple',
+                'name'      => 'environment_conditions',
+                'entity'    => 'environment_conditions',
+                'attribute' => 'name', 
+                'model'     => "App\Models\EnvironmentCondition", 
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
             [
                 'label' => 'Symptoms',
                 'type'  => 'textarea',
                 'name'  => 'symptoms'
+            ],
+            [
+                'label' => 'Prevention',
+                'type'  => 'textarea',
+                'name'  => 'prevention'
+            ],
+            [
+                'label' => 'Treatment',
+                'type'  => 'textarea',
+                'name'  => 'treatment'
             ]
             
         ]);
