@@ -50,6 +50,11 @@ class Statistics extends Model
         return $this->belongsTo(Allergy::class);
     }
 
+    public function season()
+    {
+        return $this->belongsTo(Season::class);
+    }
+
     public function country()
     {
         return $this->belongsTo(Country::class);

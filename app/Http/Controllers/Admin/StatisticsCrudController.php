@@ -210,9 +210,200 @@ class StatisticsCrudController extends CrudController
     public function myStatistics() 
     {
       $statistics = Statistics::where('user_id', Auth::id())->get();
+      
 
+      // $dataFrequencies = array();
+
+      // foreach ($statistics as $statistic) {
+      //   $seasonData = array(0, 0, 0, 0);
+
+      //   if(!$statistic->allergy->season) {
+      //       $seasonData[4] = $statistic->value;
+      //   } else {
+      //     if($statistic->allergy->season->name == 'Winter') {
+      //       $seasonData[0] = $statistic->value;
+      //     }
+      //     if($statistic->allergy->season->name == 'Spring') {
+      //       $seasonData[1] = $statistic->value;
+      //     }
+      //     if($statistic->allergy->season->name == 'Summer') {
+      //       $seasonData[2] = $statistic->value;
+      //     }
+      //     if($statistic->allergy->season->name == 'Fall') {
+      //       $seasonData[3] = $statistic->value;
+      //     }
+      //   }
+
+      //   $obj = array(
+      //     "name"  => $statistic->allergy->name,
+      //     "data" => $seasonData
+      //   );
+      //   array_push($dataFrequencies, $obj);
+        
+      // }
+
+      // $seriesFrequencies = json_encode($dataFrequencies);
+
+
+
+      $dataFrequenciesInit = array();
+      // $dataFrequenciesInit["Other"] = array(0,0,0,0, 0);  
+
+       foreach ($statistics as $statistic) {
+        if($statistic->allergy && !isset($dataFrequenciesInit[$statistic->allergy->name])) {
+          $dataFrequenciesInit[$statistic->allergy->name]= array(0, 0, 0, 0, 0);
+        }
+        if($statistic->allergy->season) {
+          
+          if($statistic->allergy->season->name == 'Winter') {
+            $dataFrequenciesInit[$statistic->allergy->name][0] += $statistic->value;
+          }
+          if($statistic->allergy->season->name == 'Spring') {
+            $dataFrequenciesInit[$statistic->allergy->name][1] += $statistic->value;
+          }
+          if($statistic->allergy->season->name == 'Summer') {
+            $dataFrequenciesInit[$statistic->allergy->name][2] += $statistic->value;
+          }
+          if($statistic->allergy->season->name == 'Fall') {
+            $dataFrequenciesInit[$statistic->allergy->name][3] += $statistic->value;
+          }
+        } else {
+          if(!isset($dataFrequenciesInit[$statistic->allergy->name][4])) {
+             $dataFrequenciesInit[$statistic->allergy->name][4] = 0; 
+            } else {
+
+         $dataFrequenciesInit[$statistic->allergy->name][4] += $statistic->value; 
+       }
+          // if($statistic->allergy->season->name == 'Winter') {
+          //   $dataFrequenciesInit["Other"][0] += $statistic->value;
+          // }
+          // if($statistic->allergy->season->name == 'Spring') {
+          //   $dataFrequenciesInit["Other"][1] += $statistic->value;
+          // }
+          // if($statistic->allergy->season->name == 'Summer') {
+          //   $dataFrequenciesInit["Other"][2] += $statistic->value;
+          // }
+          // if($statistic->allergy->season->name == 'Fall') {
+          //   $dataFrequenciesInit["Other"][3] += $statistic->value;
+          // }
+        }
+        
+      }
+
+      $dataFrequencies = array();
+      foreach ($dataFrequenciesInit as $key => $data) {
+        if($data > 0) {
+          $obj = array(
+            "name"  => $key,
+            "data" => $data
+          );
+          array_push($dataFrequencies, $obj);
+        }
+      }
+      $seriesFrequencies = json_encode($dataFrequencies);
+
+
+      // dd($seriesFrequencies);
+
+      // series By country
+      $dataCountriesInit = array();
+      $dataCountriesInit["Other"] = 0;  
+
+       foreach ($statistics as $statistic) {
+        if($statistic->country && !isset($dataCountriesInit[$statistic->country->name])) {
+          $dataCountriesInit[$statistic->country->name] = 0;
+        }
+        if($statistic->country) {
+          $dataCountriesInit[$statistic->country->name] += $statistic->value;  
+        } else {
+          $dataCountriesInit["Other"] += $statistic->value;  
+        }
+        
+      }
+
+      $dataCountries = array();
+      foreach ($dataCountriesInit as $key => $data) {
+        if($data > 0) {
+          $obj = array(
+            "name"  => $key,
+            "y" => $data
+          );
+          array_push($dataCountries, $obj);
+        }
+      }
+      $seriesCountries = json_encode($dataCountries);
+
+
+       // series By season
+      $dataSeasonsInit = array();
+      $dataSeasonsInit["Other"] = 0;  
+
+       foreach ($statistics as $statistic) {
+       if($statistic->allergy->season && !isset($dataSeasonsInit[$statistic->allergy->season->name])) {
+          $dataSeasonsInit[$statistic->allergy->season->name] = 0;
+        }
+        if($statistic->allergy->season) {
+          $dataSeasonsInit[$statistic->allergy->season->name] += $statistic->value;
+        } else {
+          $dataSeasonsInit["Other"] += $statistic->value;
+        }
+      }
+
+      $dataSeasons = array();
+      foreach ($dataSeasonsInit as $key => $data) {
+        if($data > 0) {
+
+          $obj = array(
+            "name"  => $key,
+            "y" => $data
+          );
+          array_push($dataSeasons, $obj);
+        }
+      }
+      $seriesSeasons = json_encode($dataSeasons);
+
+
+
+        // series By allergen
+      $dataAllergensInit = array();
+
+      foreach ($statistics as $statistic) {
+          foreach ($statistic->allergy->allergens as $allergen) {
+           if(!isset($dataAllergensInit[$allergen->name])) {
+            $dataAllergensInit[$allergen->name] = 0;
+          } else {
+            $dataAllergensInit[$allergen->name] += $statistic->value;
+          }
+          
+          }
+        }
+
+      $dataAllergens = array();
+      foreach ($dataAllergensInit as $key => $data) {
+        if($data > 0) {
+
+          $obj = array(
+            "name"  => $key,
+            "data" =>array($data)
+          );
+          array_push($dataAllergens, $obj);
+        }
+      }
+      $seriesAllergens = json_encode($dataAllergens);
+
+
+      // dd($seriesAllergens);
+
+      // dd($dataSeasons);
+      
       // dd($statistics);
-      return view('statistics.my_statistics', ['statistics' => $statistics]);
+      return view('statistics.my_statistics', 
+        [
+          'seriesFrequencies' => $seriesFrequencies,
+          'seriesCountries' => $seriesCountries,
+          'seriesSeasons' => $seriesSeasons,
+          'seriesAllergens' => $seriesAllergens
+        ]);
     }
 
 

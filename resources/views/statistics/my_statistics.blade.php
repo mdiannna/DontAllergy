@@ -24,10 +24,23 @@
             <!-- Default box -->    
             <div class="box">
                 <div class="box-header with-border">
-                    <!-- <h3 class="box-title">Allergy questionnaire</h3> -->
-                    <!-- <div class="col-md-12"> -->
+                             
+                    <div class="container">
+                        <div class="col-md-12" id="container"></div>
+                    </div>
 
-<div id="container"></div>
+                    <hr>
+
+                    <div class="container">
+                        <div class="col-md-12" id="allergens"></div>
+                    </div>
+
+                    <hr>
+                    
+                    <div class="container">
+                        <div class="col-md-6" id="countries"></div>
+                        <div class="col-md-6" id="seasons"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -45,14 +58,15 @@ document.addEventListener("DOMContentLoaded", function(event) {
                 type: 'column'
             },
             title: {
-                text: 'Your allergies frequency(TODO: de luat date din BD!!!) '
+                text: 'Your allergies frequency'
             },
             xAxis: {
                 categories: [
                     'Winter',
                     'Spring',
                     'Summer',
-                    'Fall'
+                    'Fall',
+                    'No info about season'
                 ],
                 crosshair: true
             },
@@ -76,40 +90,131 @@ document.addEventListener("DOMContentLoaded", function(event) {
                     borderWidth: 0
                 }
             },
-            series: [
-            {
-                name: 'Allergy1',
-                data: [49, 71, 106, 129]
-
-            }, {
-                name: 'Allergy2',
-                data: [83, 78, 98, 93]
-
-            }, {
-                name: 'Allergy3',
-                data: [48, 38, 39, 41]
-
-            }, {
-                name: 'Allergy4',
-                data: [42, 33, 34, 39]
-
-            },
-            {
-                name: 'Allergy5',
-                data: [42, 33, 34, 39]
-
-            },
-            {
-                name: 'Allergy6',
-                data: [42, 33, 34 , 39]
-
-            },
-            {
-                name: 'Allergy 7',
-                data: [42, 33, 34, 39]
-
-            }]
+            series:  {!! $seriesFrequencies !!}
         });
+
+
+    Highcharts.chart('countries', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Your allergies frequency by countries'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series:  [{ 
+            name: 'Frequency',
+            colorByPoint: true,
+            data: {!! $seriesCountries !!}
+        }]
+    });
+
+
+    Highcharts.chart('seasons', {
+        chart: {
+            plotBackgroundColor: null,
+            plotBorderWidth: null,
+            plotShadow: false,
+            type: 'pie'
+        },
+        title: {
+            text: 'Your allergies frequency by seasons'
+        },
+        tooltip: {
+            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+        },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: true,
+                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                    style: {
+                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                    }
+                }
+            }
+        },
+        series:  [{ 
+            name: 'Frequency by seasons',
+            colorByPoint: true,
+            data: {!! $seriesSeasons !!}
+        }]
 });
+
+
+    Highcharts.chart('allergens', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'Allergen frequency'
+    },
+    xAxis: {
+        categories: ['Allergens'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'Allergen frequency',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' cases'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: {!! $seriesAllergens !!}
+});
+
+});
+
+
+
    
 </script>
