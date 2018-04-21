@@ -27,3 +27,9 @@ Route::delete('/user/post/delete', 'UserController@deletePost')->name('user.post
 Route::get('/user/profile', 'UserController@view')->name('user.profile.view');
 Route::post('/user/get', 'UserController@get')->name('user.profile.get');
 Route::post('/user/profile/update', 'UserController@update')->name('user.profile.update');
+
+
+Route::get('/my-allergies', 'Admin\AllergyCrudController@myAllergies')->name('my_allergies');
+
+
+Route::get('/questionnaire', 'Admin\StatisticsCrudController@completeQuestionnaire')->name('questionnaire');

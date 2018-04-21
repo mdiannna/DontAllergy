@@ -185,4 +185,9 @@ class StatisticsCrudController extends CrudController
             'chartType' => $chartType
         ]);
     }
+
+    public function completeQuestionnaire() 
+    {
+      return view('statistics.questionnaire');
+    }
 }

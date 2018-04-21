@@ -30,51 +30,61 @@ class AllergyCrudController extends CrudController
 
         $this->crud->addFields([
             [
-                'name' => 'name',
+                'name'  => 'name',
                 'label' => "Name",
-                'type' => 'text'
+                'type'  => 'text'
             ],
             [
-                'label' => "Season",
-                'type' => 'select2',
-                'name' => 'season_id', // the db column for the foreign key
-                'entity' => 'season', // the method that defines the relationship in your Model
+                'label'     => "Season",
+                'type'      => 'select2',
+                'name'      => 'season_id', // the db column for the foreign key
+                'entity'    => 'season', // the method that defines the relationship in your Model
                 'attribute' => 'name', // foreign key attribute that is shown to user
-                'model' => "App\Models\Season" // foreign key model
+                'model'     => "App\Models\Season" // foreign key model
             ],
             [       // Select2Multiple = n-n relationship (with pivot table)
-                'label' => "Allergens",
-                'type' => 'select2_multiple',
-                'name' => 'allergens', // the method that defines the relationship in your Model
-                'entity' => 'allergens', // the method that defines the relationship in your Model
+                'label'     => "Allergens",
+                'type'      => 'select2_multiple',
+                'name'      => 'allergens', // the method that defines the relationship in your Model
+                'entity'    => 'allergens', // the method that defines the relationship in your Model
                 'attribute' => 'name', // foreign key attribute that is shown to user
-                'model' => "App\Models\Allergen", // foreign key model
-                'pivot' => true, // on create&update, do you need to add/delete pivot table entries?
+                'model'     => "App\Models\Allergen", // foreign key model
+                'pivot'     => true, // on create&update, do you need to add/delete pivot table entries?
+            ],
+            [
+                'label' => 'Symptoms',
+                'type'  => 'textarea',
+                'name'  => 'symptoms'
             ]
             
         ]);
 
         $this->crud->addColumns([
             [
-                'name' => 'name',
+                'name'  => 'name',
                 'lable' => 'Name'
             ],
             [
-                'label' => "Season", // Table column heading
-                'type' => "select",
-                'name' => 'season_id', // the column that contains the ID of that connected entity;
-                'entity' => 'season', // the method that defines the relationship in your Model
+                'label'     => "Season", // Table column heading
+                'type'      => "select",
+                'name'      => 'season_id', // the column that contains the ID of that connected entity;
+                'entity'    => 'season', // the method that defines the relationship in your Model
                 'attribute' => "name", // foreign key attribute that is shown to user
-                'model' => "App\Models\Season", // foreign key model
+                'model'     => "App\Models\Season", // foreign key model
             ],
             [
-                'label' => "Allergens", // Table column heading
-                'type' => "select_multiple",
-                'name' => 'allergens', // the method that defines the relationship in your Model
-                'entity' => 'allergens', // the method that defines the relationship in your Model
+                'label'     => "Allergens", // Table column heading
+                'type'      => "select_multiple",
+                'name'      => 'allergens', // the method that defines the relationship in your Model
+                'entity'    => 'allergens', // the method that defines the relationship in your Model
                 'attribute' => "name", // foreign key attribute that is shown to user
-                'model' => "App\Models\Allergen", // foreign key model
+                'model'     => "App\Models\Allergen", // foreign key model
             ],
+            [
+                'label' => 'Symptoms',
+                'type'  => 'textarea',
+                'name'  => 'symptoms'
+            ]
             
         ]);
 
@@ -163,5 +173,9 @@ class AllergyCrudController extends CrudController
         // your additional operations after save here
         // use $this->data['entry'] or $this->crud->entry
         return $redirect_location;
+    }
+
+    public function myAllergies() {
+        return view('user.my_allergies');
     }
 }
