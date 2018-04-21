@@ -39,4 +39,5 @@
 <li><a href="/my-allergies"><i class="fa fa-list"></i> <span>My allergies</span></a></li>
 <li><a href="/add-allergy"><i class="fa fa-plus"></i> <span>Add allergy</span></a></li>
 <li><a href="/my-statistics"><i class="fa fa-pie-chart"></i> <span>My statistics</span></a></li>
+<li><a href="/all-statistics"><i class="fa fa-pie-chart"></i> <span>Statistics for all users</span></a></li>
 

@@ -10,7 +10,7 @@
 @section('header')
     <section class="content-header">
         <h1>
-            Statistics for your allergies
+            Statistics for all users
         </h1>
        
     </section>
