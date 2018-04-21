@@ -24,7 +24,11 @@
             <!-- Default box -->    
             <div class="box">
                 <div class="box-header with-border">
-                             
+                    
+                    <div class="container">
+                        <div class="col-md-12" id="users"></div>
+                    </div>
+
                     <div class="container">
                         <div class="col-md-12" id="container"></div>
                     </div>
@@ -53,12 +57,63 @@
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function(event) { 
 
+
+    Highcharts.chart('users', {
+    chart: {
+        type: 'bar'
+    },
+    title: {
+        text: 'User frequency'
+    },
+    xAxis: {
+        categories: ['Users'],
+        title: {
+            text: null
+        }
+    },
+    yAxis: {
+        min: 0,
+        title: {
+            text: 'User frequency',
+            align: 'high'
+        },
+        labels: {
+            overflow: 'justify'
+        }
+    },
+    tooltip: {
+        valueSuffix: ' cases'
+    },
+    plotOptions: {
+        bar: {
+            dataLabels: {
+                enabled: true
+            }
+        }
+    },
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -40,
+        y: 80,
+        floating: true,
+        borderWidth: 1,
+        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+        shadow: true
+    },
+    credits: {
+        enabled: false
+    },
+    series: {!! $seriesUsers !!}
+});
+    
         Highcharts.chart('container', {
             chart: {
                 type: 'column'
             },
             title: {
-                text: 'Your allergies frequency'
+                text: 'Allergies frequency'
             },
             xAxis: {
                 categories: [
@@ -102,7 +157,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             type: 'pie'
         },
         title: {
-            text: 'Your allergies frequency by countries'
+            text: 'Allergies frequency by countries'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -136,7 +191,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
             type: 'pie'
         },
         title: {
-            text: 'Your allergies frequency by seasons'
+            text: 'Allergies frequency by seasons'
         },
         tooltip: {
             pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

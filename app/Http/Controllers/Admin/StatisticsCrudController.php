@@ -9,6 +9,7 @@ use App\Http\Requests\StatisticsRequest as StoreRequest;
 use App\Http\Requests\StatisticsRequest as UpdateRequest;
 
 use App\Models\Statistics;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 
 class StatisticsCrudController extends CrudController
@@ -497,12 +498,40 @@ class StatisticsCrudController extends CrudController
     $seriesAllergens = json_encode($dataAllergens);
 
 
+
+          // series By user
+    $dataUsersInit = array();
+
+    foreach ($statistics as $statistic) {
+      if(!isset($dataUsersInit[$statistic->allergy->name])) {
+          $dataUsersInit[$statistic->allergy->name] = 0;
+      }
+      else {
+          $dataUsersInit[$statistic->allergy->name] = count($statistic->allergy->users);
+      }
+    }
+
+    $dataUsers = array();
+    foreach ($dataUsersInit as $key => $data) {
+      if($data > 0) {
+
+        $obj = array(
+          "name"  => $key,
+          "data" =>array($data)
+          );
+        array_push($dataUsers, $obj);
+      }
+    }
+    $seriesUsers = json_encode($dataUsers);
+
+
     return view('statistics.all_statistics', 
       [
       'seriesFrequencies' => $seriesFrequencies,
       'seriesCountries' => $seriesCountries,
       'seriesSeasons' => $seriesSeasons,
-      'seriesAllergens' => $seriesAllergens
+      'seriesAllergens' => $seriesAllergens,
+      'seriesUsers' => $seriesUsers
       ]);
     }
 

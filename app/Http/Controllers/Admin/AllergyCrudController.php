@@ -248,8 +248,8 @@ class AllergyCrudController extends CrudController
 
     public function submitAllergy(StoreRequest $request) {
         $user = Auth::user();
-        
-        $user->allergies()->attach($request->allergy_id);
+
+        $user->allergies()->syncWithoutDetaching($request->allergy_id);
 
         $request['user_id'] = Auth::id();
         $request['name'] = 'frequency_statistics';
