@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     },
     tooltip: {
-        valueSuffix: ' cases'
+        valueSuffix: ' case(s)'
     },
     plotOptions: {
         bar: {
@@ -241,7 +241,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     },
     tooltip: {
-        valueSuffix: ' cases'
+        valueSuffix: ' case(s)'
     },
     plotOptions: {
         bar: {

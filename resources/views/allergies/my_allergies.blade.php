@@ -22,7 +22,10 @@
 @section('header')
         <section class="content-header">
             <h1>
-                My allergies
+                My allergies 
+                @if(isset($optionalString))
+                {{$optionalString}}
+                @endif
             </h1>
            
         </section>

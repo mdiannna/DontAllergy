@@ -241,6 +241,34 @@ class AllergyCrudController extends CrudController
         return view('allergies.my_allergies', ['allergies' => $allergies]);
     }
 
+    public function myAllergiesCurrentSeason() {
+        
+      $month = \Carbon\Carbon::now()->month;
+      if($month == 1 || $month == 2 || $month == 12) {
+        $currentSeason = 'Winter';
+      }
+      if($month == 3 || $month == 4 || $month == 5) {
+        $currentSeason = 'Spring';
+      }
+      if($month == 6 || $month == 7 || $month == 8) {
+        $currentSeason = 'Summer';
+      }
+      if($month == 9 || $month == 10 || $month == 11) {
+        $currentSeason = 'Fall';
+      }
+      $currentSeasonId = 'App\Models\Season'::where('name', $currentSeason)->first()->id; 
+
+
+        $userId = Auth::id();
+        $user = Auth::user();
+
+        $allergies = $user->allergies()->where('season_id', $currentSeasonId)->get();
+        return view('allergies.my_allergies', 
+            ['allergies' => $allergies,
+            'optionalString' => '- current season']);
+    }
+
+
     public function addAllergy() 
     {
       return view('allergies.add_allergy');
@@ -265,5 +293,7 @@ class AllergyCrudController extends CrudController
         $allergy = Allergy::find($id);
         return view('allergies.view_allergy', ['allergy' => $allergy]);
     }
+
+
 
 }
