@@ -30,3 +30,6 @@
 <li><a href="{{ backpack_url('allergens') }}"><i class="fa fa-bug"></i> <span>Allergens</span></a></li>
 <li><a href="{{ backpack_url('statistics') }}"><i class="fa fa-users"></i> <span>User statistics</span></a></li>
 <li><a href="{{ backpack_url('statistics_types') }}"><i class="fa fa-pie-chart"></i> <span>Statistics Types</span></a></li>
+<hr>
+<li><a href="/my-allergies"><i class="fa fa-pie-chart"></i> <span>My allergies</span></a></li>
+<li><a href="/add-allergy"><i class="fa fa-pie-chart"></i> <span>Add allergy</span></a></li>

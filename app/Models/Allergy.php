@@ -36,6 +36,11 @@ class Allergy extends Model
         return $this->belongsToMany(Allergen::class);
     }
 
+    public function getThreeAllergensAttribute()
+    {
+        return $this->allergens()->take(3)->get();
+    }
+
     /**
      * An allergy have one season
      *

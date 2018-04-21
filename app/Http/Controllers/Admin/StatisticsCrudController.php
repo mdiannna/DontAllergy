@@ -186,8 +186,4 @@ class StatisticsCrudController extends CrudController
         ]);
     }
 
-    public function completeQuestionnaire() 
-    {
-      return view('statistics.questionnaire');
-    }
 }

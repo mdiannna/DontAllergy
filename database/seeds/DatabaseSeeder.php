@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AllergenAllergySeeder::class);
         $this->call(GroupsSeeder::class);
         $this->call(PostsSeeder::class);
+        $this->call(CountriesTableSeeder::class);
     }
 }

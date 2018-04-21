@@ -7,6 +7,7 @@ use Backpack\CRUD\app\Http\Controllers\CrudController;
 // VALIDATION: change the requests to match your own file names if you need form validation
 use App\Http\Requests\AllergyRequest as StoreRequest;
 use App\Http\Requests\AllergyRequest as UpdateRequest;
+use Illuminate\Support\Facades\Auth;
 
 class AllergyCrudController extends CrudController
 {
@@ -176,6 +177,19 @@ class AllergyCrudController extends CrudController
     }
 
     public function myAllergies() {
-        return view('user.my_allergies');
+        $userId = Auth::id();
+        $user = Auth::user();
+
+        $allergies = $user->allergies;
+        return view('allergies.my_allergies', ['allergies' => $allergies]);
+    }
+
+    public function addAllergy() 
+    {
+      return view('allergies.add_allergy');
+    }
+
+    public function submitAllergy(Request $request) {
+        $userId = Auth::id();
     }
 }
