@@ -82,7 +82,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }
     },
     tooltip: {
-        valueSuffix: ' case(s)'
+        valueSuffix: ' user(s)'
     },
     plotOptions: {
         bar: {
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     },
     series: {!! $seriesUsers !!}
 });
-    
+
         Highcharts.chart('container', {
             chart: {
                 type: 'column'
