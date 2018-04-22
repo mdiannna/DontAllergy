@@ -6,7 +6,7 @@ A website for managing, preventing and treating allergies, informing you and hel
 (For install and usage see [Installation and usage](https://github.com/mdiannna/DontAllergy/blob/develop/README.md#installationandusage))
 
 
-# Screenshots
+# Screenshots (some of them)
 
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode1.png)
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode2.png)
