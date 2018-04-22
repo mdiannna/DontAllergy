@@ -29,3 +29,14 @@ header.masthead .intro-text .intro-heading {
 #tellMeMore:hover {
 	color: #212529;
 }
+
+.card, .form-control {
+	border-radius: 0px;
+}
+.delete-post {
+	font-size: 22px;	
+}
+.delete-post:hover {
+	color: red;
+	cursor: pointer;
+}

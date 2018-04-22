@@ -10667,12 +10667,3 @@ button.toast-close-button {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-.delete-post {
-  font-size: 22px;
-}
-
-.delete-post:hover {
-  color: red;
-  cursor: pointer;
-}
-
