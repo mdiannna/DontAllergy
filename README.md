@@ -25,6 +25,9 @@ A website for managing, preventing and treating allergies, informing you and hel
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode13.png)
 
 
+# Database design
+
+![EER diagram](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/database/database.png)
 
 # Installation and usage
 - git clone https://github.com/mdiannna/DontAllergy.git
