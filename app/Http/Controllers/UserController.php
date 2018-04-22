@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Http\Requests\PostRequest;
 
 class UserController extends Controller
 {
@@ -62,7 +63,7 @@ class UserController extends Controller
      * Save a post
      *
      */
-    public function savePost(Request $request, Post $post)
+    public function savePost(PostRequest $request, Post $post)
     {
         $post = $post->create($request->all() + ['user_id' => auth()->user()->id]);
         return redirect()->back();

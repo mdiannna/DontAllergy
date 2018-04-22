@@ -1,7 +1,7 @@
 
-require('babel-polyfill');
 require("datatables.net");
 
+window.swal = require("sweetalert");
 window.toastr = require('toastr');
 window._ = require('lodash');
 window.Popper = require('popper.js').default;

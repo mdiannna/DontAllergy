@@ -34,7 +34,7 @@
 <li><a href="{{ backpack_url('statistics') }}"><i class="fa fa-users"></i> <span>User statistics</span></a></li>
 <li><a href="{{ backpack_url('statistics_types') }}"><i class="fa fa-pie-chart"></i> <span>Statistics Types</span></a></li>
 
-<hr>
+{{-- <hr> --}}
 
 <li><a href="/my-allergies"><i class="fa fa-list"></i> <span>My allergies</span></a></li>
 <li><a href="/my-allergies-current-season"><i class="fa fa-exclamation-triangle"></i> <span>My allergies - current season</span></a></li>

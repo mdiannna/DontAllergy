@@ -20,9 +20,9 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "babel-polyfill": "^6.26.0",
         "datatables.net": "^1.10.16",
         "datatables.net-dt": "^1.10.16",
+        "sweetalert": "^2.1.0",
         "toastr": "^2.1.4"
     }
 }

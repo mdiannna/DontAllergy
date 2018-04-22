@@ -25,24 +25,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ config('app.name') }} - Welcome</title>
-      <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-
-    <!-- Bootstrap core CSS -->
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link href="{{ asset('source/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-
-    <!-- Custom fonts for this template -->
     <link href="{{ asset('source/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
-    <!-- Custom styles for this template -->
     <link href="{{ asset('css/agency.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/app.js') }}"></script>
 
     <style type="text/css">
         body {
@@ -137,18 +132,24 @@
     <h1>Forum</h1>
     <div class="section">
     <div class="card mb-4">
-        <form action="{{ route('user.post.save') }}" method="post">
+        <form id="post-form" action="{{ route('user.post.save') }}" method="post">
             @csrf
             <div class="card-header">
                 <input type="text" name="title" class="form-control" placeholder="Post title">
+                <span class="invalid-feedback">
+                    <strong></strong>
+                </span>
             </div>
             <div class="card-body">
                 <div class="form-group">
                     <textarea name="description" id="" class="form-control" rows="3" placeholder="Post description"></textarea>
+                    <span class="invalid-feedback">
+                        <strong></strong>
+                    </span>
                 </div>
                 <div class="row">
                     <div class="col text-right">
-                        <button type="submit" class="btn btn-primary">Post something</button>
+                        <button type="submit" id="post-something" class="btn btn-primary">Post something</button>
                     </div>
                 </div>
             </div>
@@ -161,9 +162,9 @@
                     <div class="col">Title: {{ $post->title }}</div>
                     <div class="col-auto text-secondary text-right">
                         {{ $post->user->full_name }} |
-                        {{ $post->updated_at }} |
+                        {{ $post->updated_at }}
                         @if (auth()->user()->id == $post->user->id)
-                            <i data-post="{{ $post->id }} "class="fa fa-times delete-post">x</i>
+                           | <i data-post="{{ $post->id }}" class="fa fa-times delete-post"></i>
                         @endif
                     </div>
                 </div>
