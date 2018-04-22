@@ -14,6 +14,14 @@ A website for managing, preventing and treating allergies, informing you and hel
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode4.png)
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode5.png)
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode6.png)
+
+
+## Newer version:
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/master/about/screenshots/fiicodenew3.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/master/about/screenshots/fiicodenew4.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/master/about/screenshots/fiicodenew2.png)
+
+## Old version:
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode5_1.png)
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode7.png)
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode8.png)
