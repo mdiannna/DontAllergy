@@ -58,16 +58,22 @@
         </div>
     </nav>
     <main id="app" class="py-4">
-        <div class="container">
+        <div class="container-fluid">
              @if (session('status'))
                 <div class="alert alert-success">
                     {{ session('status') }}
                 </div>
             @endif
             <div class="row justify-content-center">
-                <div class="col-md-12">
+                <div class="col-md-2">
+                    @auth
+                        @include('layouts.sidebar')
+                    @endauth
+                </div>
+                <div class="col-md-6">
                     @yield('content')
                 </div>
+                <div class="col-md-2"></div>
             </div>
         </div>
     </main>

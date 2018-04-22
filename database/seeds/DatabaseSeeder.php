@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
         DB::table('posts')->truncate();
+        DB::table('group_user')->truncate();
         DB::table('users')->truncate();
         DB::table('allergies')->truncate();
         DB::table('allergens')->truncate();
@@ -30,5 +31,6 @@ class DatabaseSeeder extends Seeder
         $this->call(AllergenAllergySeeder::class);
         $this->call(GroupsSeeder::class);
         $this->call(PostsSeeder::class);
+        $this->call(GroupUserSeeder::class);
     }
 }
