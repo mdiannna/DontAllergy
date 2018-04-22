@@ -14,12 +14,14 @@
   }
   $currentSeasonId = 'App\Models\Season'::where('name', $currentSeason)->first()->id; 
 ?>
+<li>
+  <a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span>
+    @if(Auth::user()->allergies->pluck('season_id')->unique()->contains($currentSeasonId))
+      &nbsp;<i class="fas fa-exclamation alert" style="color:red"></i>
+    @endif
+  </a>
+</li>
 @if (request()->isAdmin)
-  <li><a href="{{ backpack_url('dashboard') }}"><i class="fa fa-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span>
-  @if(Auth::user()->allergies->pluck('season_id')->unique()->contains($currentSeasonId))
-    &nbsp;<i class="fas fa-exclamation alert" style="color:red"></i>
-  @endif
-  </a></li>
   <li><a href="{{ backpack_url('users') }}"><i class="fa fa-user"></i> <span>Users</span></a></li>
   <li><a href="{{ backpack_url('roles') }}"><i class="fa fa-server"></i> <span>User roles</span></a></li>
   <li><a href="{{ backpack_url('posts') }}"><i class="fa fa-connectdevelop"></i> <span>User Posts</span></span></a></li>
