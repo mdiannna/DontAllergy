@@ -61,5 +61,4 @@ Route::get('/my-statistics', 'Admin\StatisticsCrudController@myStatistics')->nam
 
 Route::get('/all-statistics', 'Admin\StatisticsCrudController@allStatistics')->name('all_statistics');
 
-
 Route::get('/view-allergy/{id}', 'Admin\AllergyCrudController@viewAllergy')->name('view_allergy');

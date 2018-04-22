@@ -15,8 +15,14 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user() && auth()->user()->isAdmin()) {
-            return $next($request);
+        if (auth()->user()) {
+            if (auth()->user()->isAdmin()) {
+                $request->merge(['isAdmin' => true]);
+                return $next($request);
+            } else {
+                $request->merge(['isAdmin' => false]);
+                return $next($request);
+            }
         }
         return redirect(backpack_url('login'));
     }
