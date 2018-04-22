@@ -1,3 +1,21 @@
+
+<?php  
+  $month = \Carbon\Carbon::now()->month;
+  if($month == 1 || $month == 2 || $month == 12) {
+    $currentSeason = 'Winter';
+  }
+  if($month == 3 || $month == 4 || $month == 5) {
+    $currentSeason = 'Spring';
+  }
+  if($month == 6 || $month == 7 || $month == 8) {
+    $currentSeason = 'Summer';
+  }
+  if($month == 9 || $month == 10 || $month == 11) {
+    $currentSeason = 'Fall';
+  }
+  $currentSeasonId = 'App\Models\Season'::where('name', $currentSeason)->first()->id; 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +55,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="/">Don't allergy me!</a>
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Don't allergy me!</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
@@ -81,28 +99,39 @@
 
             @if(Auth::check())
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/admin/dashboard">Dashboard</a>
+              <a class="nav-link" href="/admin/dashboard">
+              <i class="fa fa-list"></i>
+              Dashboard</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/forum">Forum</a>
+              <a class="nav-link" href="/forum">
+              <i class="fa fa-edit"></i>
+              Forum</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/my-allergies">My allergies</a>
+              <a class="nav-link" href="/my-allergies">
+              @if(Auth::user()->allergies->pluck('season_id')->unique()->contains($currentSeasonId))
+                <i class="fa fa-exclamation-triangle" style="color:red"></i>
+              @else 
+                <i class="fa fa-question"></i>
+              @endif
+              My allergies
+
+              </a>
+
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/my-statistics">My statistics</a>
+              <a class="nav-link js-scroll-trigger" href="/all-statistics">
+              <i class="fa fa-bar-chart"></i>
+              All statistics</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="/all-statistics">All statistics</a>
-            </li>
-            <li><a href="{{ route('backpack.auth.logout') }}"><i class="fa fa-btn fa-sign-out"></i> {{ trans('backpack::base.logout') }}</a></li>
+            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{{ route('backpack.auth.logout') }}"><i class="fa fa-btn fa-sign-out"></i> {{ trans('backpack::base.logout') }}</a></li>
             @endif
 
           </ul>
         </div>
       </div>
     </nav>
-
 
 <div class="container">
     <h1>Forum</h1>

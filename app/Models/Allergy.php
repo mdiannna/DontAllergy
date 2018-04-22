@@ -14,7 +14,7 @@ class Allergy extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'season_id'
+        'name', 'season_id', 'symptoms', 'treatment', 'prevention'
     ];
 
 
