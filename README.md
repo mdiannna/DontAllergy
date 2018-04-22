@@ -87,8 +87,9 @@ $ php artisan serve
 
 
 # Authors
-- Diana Marusic
-- Naomi-Alexandra Halip
-- Irina Gutanu
-- Robert-Gabriel Stanciu
+- [Robert-Gabriel Stanciu](https://github.com/Dem0seQuence)
+- [Naomi-Alexandra Halip](https://github.com/naomihalip)
+- [Irina Gutanu](https://github.com/irinagutanu)
+- [Diana Marusic](https://github.com/mdiannna)
+
 
