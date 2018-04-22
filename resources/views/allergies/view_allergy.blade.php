@@ -84,14 +84,14 @@
 
 						<h3 style="color:Blue; font-family: Times New Roman, Times, serif" >Treatment</h3>
 						@if($allergy->treatment)
-							<p>{{$allergy->treatment->name}}</p>
+							<p>{{$allergy->treatment}}</p>
 						@else
 							<p>No info.</p>
 						@endif	
 
 						<h3 style="color:Blue; font-family: Times New Roman, Times, serif" >Prevention</h3>
 						@if($allergy->prevention)
-							<p>{{$allergy->prevention->name}}</p>
+							<p>{{$allergy->prevention}}</p>
 						@else
 							<p>No info.</p>
 						@endif	
