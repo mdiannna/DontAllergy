@@ -3,8 +3,30 @@ Our project for the FiiCode competition (web)
 
 A website for managing, preventing and treating allergies, informing you and helping you to be healthy. And even more than that.
 
+(For install and usage see [Installation and usage](https://github.com/mdiannna/DontAllergy/blob/develop/README.md#installationandusage))
 
-# Installation and use
+
+# Screenshots
+
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode1.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode2.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode3.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode4.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode5.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode6.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode5_1.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode7.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode8.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode9.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode10.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode11.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode12.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode14.png)
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode13.png)
+
+
+
+# Installation and usage
 - git clone https://github.com/mdiannna/DontAllergy.git
 
 
