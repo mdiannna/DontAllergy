@@ -11,10 +11,11 @@ class AllergensSeeder extends Seeder
      */
     public function run()
     {
-        $allergens = [];
-        for ($i=0; $i < 123; $i++) { 
-            $allergens[] = ['name' => 'Allergen' . $i];
-        }
-        DB::table('allergens')->insert($allergens);
+        DB::table('allergens')->insert([
+            ['name' => 'pollen'],
+            ['name' => 'sun'],
+            ['name' => 'dust'],
+            ['name' => 'bugs']
+        ]);
     }
 }

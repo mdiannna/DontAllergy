@@ -14,7 +14,7 @@ class Allergy extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'season_id'
+        'name', 'season_id', 'symptoms', 'treatment', 'prevention'
     ];
 
 
@@ -25,7 +25,7 @@ class Allergy extends Model
      */
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany('App\User');
     }
     /**
      * An allergy can have many allergens
@@ -34,6 +34,31 @@ class Allergy extends Model
     public function allergens()
     {
         return $this->belongsToMany(Allergen::class);
+    }
+
+    /**
+     * An allergy can have many food causes
+     *
+     */
+    public function foods()
+    {
+        return $this->belongsToMany(Food::class, 'allergies_foods');
+    }
+
+    /**
+     * An allergy can have many environment condition causes
+     *
+     */
+    public function environment_conditions()
+    {
+        return $this->belongsToMany(EnvironmentCondition::class, 'allergies_env_conditions', 'allergy_id', 'env_condition_id');
+    }
+
+
+
+    public function getThreeAllergensAttribute()
+    {
+        return $this->allergens()->take(3)->get();
     }
 
     /**
