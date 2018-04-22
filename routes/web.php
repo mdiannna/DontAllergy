@@ -15,9 +15,29 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+// Route::get('', function () {
+//     return view('welcome');
+// });
+
+Route::get('/home', function () {
+    return redirect('/');
+})->name('home');
+
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/admin/login', function () {
+    return redirect('/login');
+});
+
+Route::get('/admin/register', function () {
+    return redirect('/register');
+});
+
+
+Route::get('/forum', 'HomeController@forum')->name('forum');
 Route::get('/user-allergies', 'UserController@allergies')->name('user.allergies');
 
 // User controller routes

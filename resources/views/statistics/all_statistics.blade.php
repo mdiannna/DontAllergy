@@ -24,7 +24,11 @@
             <!-- Default box -->    
             <div class="box">
                 <div class="box-header with-border">
-                    
+                <a href="/my-statistics" class="btn btn-primary">
+                <i class="fa fa-eye"></i>
+                View only my statistics</a>
+                </div>
+                <div class="box-content">
                     <div class="container">
                         <div class="col-md-12" id="users"></div>
                     </div>

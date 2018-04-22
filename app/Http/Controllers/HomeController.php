@@ -22,7 +22,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Post $post)
+    public function forum(Post $post)
     {
         $posts = $post->with('user')->orderBy('updated_at', 'desc')->get();
         return view('home', compact('posts'));
