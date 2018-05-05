@@ -168,7 +168,7 @@ class ChatBotController extends Controller
 Allergy::where("season_id", $currentSeasonId)->pluck("name");
     
 
-      $frequentAllergy = Statistics::find(Statistics::max('value'));
+      $frequentAllergy = Statistics::max('value');
         
 
         $answers = 
@@ -184,7 +184,7 @@ Allergy::where("season_id", $currentSeasonId)->pluck("name");
             "Can you show statistics for my allergies?" => "You statictics can be accessed at the following link: <a href='/my-statistics'>My statistics</a> ",
              "Can you show statistics for all users?" => "Statistics for all users can be accessed at the following link: <a href='/all-statistics'>All statistics</a> ",
              "statistics?" => "Statistics for all users can be accessed at the following link: <a href='/all-statistics'>All statistics</a> ",
-             "Most frequent allergy?" => "Asas"
+             "Most frequent allergy?" => $frequentAllergy
 
 
         ];
