@@ -22,8 +22,8 @@ class ChatBotController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function chatbot(Post $post)
+    public function chatbot()
     {
-        return view('chatbot');
+        return view('chatbot.chatbot');
     }
 }
