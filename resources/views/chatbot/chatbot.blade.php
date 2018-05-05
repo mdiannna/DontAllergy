@@ -58,16 +58,24 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Don't allergy me!</a>
+        <a class="navbar-brand js-scroll-trigger" href="/#page-top">Don't allergy me!</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
+
+           <li class="nav-item">
+
+              <a class="nav-link js-scroll-trigger" href="chatbot">
+                <i class="fa fa-check"></i>
+              Chatbot</a>
+            </li>
+            
             @if(!Auth::check())
               
-            
+           
             <li class="nav-item">
 
               <a class="nav-link js-scroll-trigger" href="#about">
@@ -238,7 +246,7 @@
                         data =  JSON.parse(data);
                         // alert(data.message);
                         $("#messages").append("<br>" + data.message); 
-                        $("#messages").append("<br>" + data.botmessage); 
+                        $("#messages").append("<br>" + "Bot: " + data.botmessage); 
                     }
                 }); 
             });

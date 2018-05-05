@@ -57,6 +57,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
+            <li class="nav-item">
+
+              <a class="nav-link js-scroll-trigger" href="chatbot">
+                <i class="fa fa-check"></i>
+              Chatbot</a>
+            </li
             @if(!Auth::check())
               
             

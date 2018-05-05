@@ -6,7 +6,8 @@
     "type": "project",
     "require": {
         "php": "^7.1.3",
-        "backpack/crud": "^3.4",
+        "backpack/base": "^0.9.0",
+        "backpack/crud": "^3.4.0",
         "barryvdh/laravel-elfinder": "^0.3.12",
         "botman/driver-web": "^1.5",
         "botman/studio-addons": "^1.2",
