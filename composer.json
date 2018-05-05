@@ -9,6 +9,7 @@
         "backpack/crud": "^3.4",
         "barryvdh/laravel-elfinder": "^0.3.12",
         "botman/driver-web": "^1.5",
+        "botman/studio-addons": "^1.2",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.6.*",
         "laravel/tinker": "^1.0"

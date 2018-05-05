@@ -21,10 +21,15 @@
 
 
   <head>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
 
     <title>{{ config('app.name') }} - Welcome</title>
 	  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -130,6 +135,13 @@
     </nav>
     <section>
     <h1>Here will be our chatbot :) </h1>
+
+    <div class="container">
+    <div class="content" id="app">
+     @csrf
+        <botman-tinker api-endpoint="/botman"></botman-tinker>
+    </div>
+</div>
     </section>
     <!-- Footer -->
     <footer>
@@ -171,6 +183,8 @@
 
     <!-- Custom scripts for this template -->
     <script src="{{asset('js/agency.min.js')}}"></script>
+
+  <script src="/js/app.js"></script>
 
   </body>
 
