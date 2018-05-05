@@ -67,3 +67,4 @@ Route::get('/view-allergy/{id}', 'Admin\AllergyCrudController@viewAllergy')->nam
 
 
 Route::get('/chatbot', 'ChatBotController@chatbot')->name('chatbot');
+Route::get('/sendMessage', 'ChatBotController@sendMessage')->name('chatbot');
