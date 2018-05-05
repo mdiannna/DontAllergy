@@ -37,6 +37,7 @@ Route::get('/admin/register', function () {
 });
 
 
+
 Route::get('/forum', 'HomeController@forum')->name('forum');
 Route::get('/user-allergies', 'UserController@allergies')->name('user.allergies');
 
@@ -62,3 +63,7 @@ Route::get('/my-statistics', 'Admin\StatisticsCrudController@myStatistics')->nam
 Route::get('/all-statistics', 'Admin\StatisticsCrudController@allStatistics')->name('all_statistics');
 
 Route::get('/view-allergy/{id}', 'Admin\AllergyCrudController@viewAllergy')->name('view_allergy');
+
+
+
+Route::get('/chatbot', 'ChatBotController@chatbot')->name('chatbot');
