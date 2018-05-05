@@ -238,6 +238,7 @@
                         data =  JSON.parse(data);
                         // alert(data.message);
                         $("#messages").append("<br>" + data.message); 
+                        $("#messages").append("<br>" + data.botmessage); 
                     }
                 }); 
             });

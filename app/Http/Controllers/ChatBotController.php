@@ -136,6 +136,7 @@ class ChatBotController extends Controller
       $response = array(
           'status' => 'success',
           'message' => $request->message,
+          'botmessage' => 'Bot: ' . '......'
       );
       return response()->json($response); 
     }
