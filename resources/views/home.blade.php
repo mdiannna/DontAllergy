@@ -62,7 +62,7 @@
               <a class="nav-link js-scroll-trigger" href="chatbot">
                 <i class="fa fa-check"></i>
               Chatbot</a>
-            </li
+            </li>
             @if(!Auth::check())
               
             
