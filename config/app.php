@@ -161,10 +161,10 @@ return [
         App\Providers\RouteServiceProvider::class,
 
 
-        // Botman
-        App\Providers\BotMan\DriverServiceProvider::class,
-        BotMan\BotMan\BotManServiceProvider::class,
-        BotMan\Studio\Providers\StudioServiceProvider::class,
+        // // Botman
+        // App\Providers\BotMan\DriverServiceProvider::class,
+        // BotMan\BotMan\BotManServiceProvider::class,
+        // BotMan\Studio\Providers\StudioServiceProvider::class,
         
 
     ],

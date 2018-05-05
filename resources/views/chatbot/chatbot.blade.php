@@ -144,7 +144,7 @@
       </div>
     </nav>
 
-
+<header class="masthead" id="allspace">
     <section class="container">
       <h1>Chatbot</h1>
 
@@ -167,7 +167,7 @@
         <!-- <form id="submitForm" method="post" action=""> -->
         <!-- @csrf -->
             <input id="chat" name="chat" class="rounded" maxlength="255" />
-
+            
             <input type="submit" class="blueButton" value="Submit" id="submit" />
 
             <div class="messages" id="messages"><b>Messages:</b></div>   
@@ -180,15 +180,15 @@
 
     </section>
 
-
     <!-- Footer -->
+    <!--
     <footer>
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-3">
             <span class="copyright">Copyright &copy; Don't allergy me! 2018</span>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-3">
                 <a href="https://github.com/mdiannna/DontAllergy" style="color:black; ">
 
                   <i class="fa fa-github" style="font-size: 2rem;"></i>
@@ -205,8 +205,9 @@
           </div>
         </div>
       </div>
+      -->
     </footer>
-
+    </header>
     <!-- Bootstrap core JavaScript -->
     <script src="{{asset('vendor/jquery/jquery.min.js')}}"></script>
     <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
