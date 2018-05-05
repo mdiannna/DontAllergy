@@ -21,7 +21,7 @@ class ChatBotController extends Controller
 
     //     $this->botman->listen();
 
-          $this->botman = app('botman');
+          // $this->botman = app('botman');
  
          // our first BotMan command
          // $this->botman->hears('hello', function ($bot) {
@@ -131,5 +131,12 @@ class ChatBotController extends Controller
 //     }
 //     
 
-    
+    public function message(Request $request) {
+        // dd($request);
+      $response = array(
+          'status' => 'success',
+          'message' => $request->message,
+      );
+      return response()->json($response); 
+    }
 }

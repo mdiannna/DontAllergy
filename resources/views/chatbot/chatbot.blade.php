@@ -26,6 +26,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
+ <!-- load jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- provide the csrf token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
+
     <title>{{ config('app.name') }} - Welcome</title>
 	  <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 
@@ -149,10 +156,15 @@
             <input type="submit" class="blueButton" value="Login" />
         </form> -->
 
-        <form id="submitForm" method="post" action="">
-            <input id="chatText" name="chatText" class="rounded" maxlength="255" />
-            <input type="submit" class="blueButton" value="Submit" />
-        </form>
+        <!-- <form id="submitForm" method="post" action=""> -->
+        <!-- @csrf -->
+            <input id="chat" name="chat" class="rounded" maxlength="255" />
+
+            <input type="submit" class="blueButton" value="Submit" id="submit" />
+
+            <div class="messages" id="messages"><b>Messages:</b></div>   
+
+        <!-- </form> -->
 
     </div>
 
@@ -207,6 +219,30 @@
 <script src="js/jScrollPane/jquery.mousewheel.js"></script>
 <script src="js/jScrollPane/jScrollPane.min.js"></script>
 <script src="js/script.js"></script>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+            var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+            $("#submit").click(function(){
+                $.ajax({
+                    /* the route pointing to the post function */
+                    url: '/message',
+                    type: 'POST',
+                    /* send the csrf-token and the input to the controller */
+                    data: {_token: CSRF_TOKEN, message:$("#chat").val()},
+                    dataType: 'JSON',
+                    /* remind that 'data' is the response of the AjaxController */
+                    success: function (data) { 
+                        // alert(data);
+                        data =  JSON.parse(data);
+                        // alert(data.message);
+                        $("#messages").append("<br>" + data.message); 
+                    }
+                }); 
+            });
+       });    
+</script>
   </body>
 
 </html>

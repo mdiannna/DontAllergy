@@ -74,3 +74,7 @@ Route::match(['get', 'post'], '/chatbot', 'ChatBotController@handle');
 Route::get('/chatbot', 'ChatBotController@chatbot')->name('chatbot');
 // Route::get('/chatbot/sendMessage', 'ChatBotController@sendMessage')->name('chatbot');
 
+Route::post('/message','ChatBotController@message');
+
+
+
