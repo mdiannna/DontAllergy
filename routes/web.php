@@ -66,10 +66,11 @@ Route::get('/view-allergy/{id}', 'Admin\AllergyCrudController@viewAllergy')->nam
 
 
 
+
+Route::match(['get', 'post'], '/chatbot', 'ChatBotController@handle');
+// Route::get('/chatbot', 'ChatBotController@chatbot');
+
+
 Route::get('/chatbot', 'ChatBotController@chatbot')->name('chatbot');
-Route::get('/sendMessage', 'ChatBotController@sendMessage')->name('chatbot');
+// Route::get('/chatbot/sendMessage', 'ChatBotController@sendMessage')->name('chatbot');
 
-
-
-Route::match(['get', 'post'], '/botman', 'ChatBotController@handle');
-Route::get('/chatbot', 'ChatBotController@chatbot');

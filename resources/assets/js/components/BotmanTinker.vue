@@ -11,7 +11,7 @@
         <input type="text" class="ChatInput" @keyup.enter="sendMessage" v-model="newMessage" placeholder="">
     </div>
 </template>
-
+`
 <style>
     input.ChatInput {
         width: 300px;

@@ -162,9 +162,11 @@ return [
 
 
         // Botman
-        BotMan\Studio\Providers\DriverServiceProvider::class,
+        App\Providers\BotMan\DriverServiceProvider::class,
         BotMan\BotMan\BotManServiceProvider::class,
         BotMan\Studio\Providers\StudioServiceProvider::class,
+        
+
     ],
 
     /*
