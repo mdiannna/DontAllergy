@@ -22,6 +22,10 @@ A website for managing, preventing and treating allergies, informing you and hel
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/master/about/screenshots/fiicodenew4.png)
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/master/about/screenshots/fiicodenew2.png)
 
+
+### Chatbot:
+![](https://raw.githubusercontent.com/mdiannna/DontAllergy/master/about/screenshots/chatbot.png)
+
 ## Old version:
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode5_1.png)
 ![](https://raw.githubusercontent.com/mdiannna/DontAllergy/develop/about/screenshots/fiicode7.png)
