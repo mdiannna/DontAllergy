@@ -89,7 +89,7 @@ In the first phase of the competition, we had to build a website about allergies
 And yes, don't forget about our [demo video](https://drive.google.com/open?id=1I6iImwuLXrZ4NC_W1MWbF63KSrEXRXXn) which we submitted pretty close to the deadline :) .
 
 
-Next, huh, waiting for the final results?... Did we get in the finals?
+Next, huh, waiting for the final results?... Did we get in the finals?...
 Not yet. We received an email with a demo request from the judges. It means we had to deploy the website. Easy, right? 
 Well, not exactly. It took us more than 6 hours to deploy the project on heroku, but after all, we did it! And one more skill aquired :).
 
@@ -107,11 +107,11 @@ The presentation was kind of interesting and fun. We knew we couldn't compete wi
 
 
 
-Overall it was nice and fun. A huge experience for us. It's not always enjoyable to get the 5th place out of 5 in the final, but still, it was the final. And we had something working, plus we learned a ton of new things, some of them being to adapt better and change the idea in the first two hours, be more organized and also get a sufficient number of developers in the final (one backend developer couldn't make it to the final, so we were 1 backend and 2 frontend developer). 
+Overall it was nice and fun. A huge experience for us. It's not always enjoyable to get the 5th place out of 5 in the final, but still, it was the final. And we had something working, plus we learned a ton of new things, some of them being to adapt better and change the idea in the first two hours, be more organized and also get a sufficient number of developers in the final (one backend developer couldn't make it to the final, so we were 1 backend and 2 frontend developers). 
 
 
 
-We hope you enjoyed our story and would like to test our allergies app, even with a simple chatbot (no Artificial Intelligence, no smart commands, no funny jokes). And if you are a student in school or university in Romania, we encourage you to partcipate at the [Fiicode competiton] (https://fiicode.asii.ro/)  next year.
+We hope you enjoyed our story and would like to test our allergies prevention app, even with a simple chatbot (no Artificial Intelligence, no smart commands, no funny jokes). And if you are a student in school or university in Romania, we encourage you to partcipate at the [Fiicode competiton](https://fiicode.asii.ro/)  next year.
 
 
 # Authors
