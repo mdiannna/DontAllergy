@@ -1,6 +1,6 @@
 # DontAllergyMe
 This is our project for the [Fiicode](https://fiicode.asii.ro/) competition (web).
-See our story [here](#ourstory)
+See our detailed story [here](#our-story).
 
 A website for managing, preventing and treating allergies, informing you and helping you to be healthy. And even more than that.
 
