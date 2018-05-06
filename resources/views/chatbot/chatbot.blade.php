@@ -66,8 +66,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
 
-           <li class="nav-item">
-
+            <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="chatbot">
                 <i class="fa fa-check"></i>
               Chatbot</a>
@@ -144,44 +143,25 @@
       </div>
     </nav>
 
-<header class="masthead" id="allspace">
-    <section class="container">
+    <section class="container" id="chatbot-container">
       <h1>Chatbot</h1>
-
-
-<div id="chatContainer">
-
-    <div id="chatTopBar" class="rounded"></div>
-    <div id="chatLineHolder"></div>
-
-    <div id="chatUsers" class="rounded"></div>
-    <div id="chatBottomBar" class="rounded">
+      <div id="chatContainer">
+      <div id="chatUsers" class="rounded"></div>
+      <div id="chatBottomBar" class="rounded">
         <div class="tip"></div>
-<!-- 
-        <form id="loginForm" method="post" action="">
-            <input id="name" name="name" class="rounded" maxlength="16" />
-            <input id="email" name="email" class="rounded" />
-            <input type="submit" class="blueButton" value="Login" />
-        </form> -->
 
-        <!-- <form id="submitForm" method="post" action=""> -->
-        <!-- @csrf -->
-            <input id="chat" name="chat" class="rounded" maxlength="255" />
-            
-            <input type="submit" class="blueButton" value="Submit" id="submit" />
+        <input id="chat" name="chat" class="rounded" maxlength="255" />
 
-            <div class="messages" id="messages"><b>Messages:</b></div>   
+        <input type="submit" class="blueButton" value="Submit" id="submit" />
 
-        <!-- </form> -->
-
-    </div>
-
+        <div class="messages" id="messages"><b>Messages:</b></div>   
+  </div>
 </div>
 
-    </section>
+</section>
 
     <!-- Footer -->
-    <!--
+    
     <footer>
       <div class="container">
         <div class="row">
@@ -205,7 +185,7 @@
           </div>
         </div>
       </div>
-      -->
+      
     </footer>
     </header>
     <!-- Bootstrap core JavaScript -->
