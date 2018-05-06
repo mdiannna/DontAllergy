@@ -80,7 +80,7 @@ $ php artisan serve
 
 # Our story
 
-We are students in Bucharest (at the moment of writing), at University of Bucharest(Diana, Naomi and Irina) and University Politechnica of Bucharest(Robert-Gabriel). One day, Diana, who participated last year at the [Fiicode competition](https://github.com/mdiannna/DontAllergy/blob/develop/README.md#installationandusage), told us about the idea of participating this year at the same competition, in the web category. And we accepted the challenge.
+We are students in Bucharest (at the moment of writing), at University of Bucharest([Diana](https://github.com/mdiannna), [Naomi](https://github.com/naomihalip) and [Irina](https://github.com/irinagutanu)) and University Politechnica of Bucharest( [Robert-Gabriel](https://github.com/Dem0seQuence)). One day, Diana, who participated last year at the [Fiicode competition](https://github.com/mdiannna/DontAllergy/blob/develop/README.md#installationandusage), told us about the idea of participating this year at the same competition, in the web category. And we accepted the challenge.
 
 
 In the first phase of the competition, we had to build a website about allergies, that makes it possible to create/update/delete allergies, have informations about allergens, make user groups, a small forum, some notifications, maybe a chatbot(which we didn't implement in this phase) and some statistics (which we had a lot because we knew some javascript chart libraries). We used Laravel and [Laravel Backpack](https://laravel-backpack.readme.io), HTML, Bootstrap, CSS and Javascript and we built some nice things :) .
